@@ -46,36 +46,41 @@ public class Principal {
 					Equipos equipoUno = new Equipos(0, null, null);
 					Equipos equipoDos = new Equipos(0, null, null);
 					
-					Partido partido = new Partido(equipoUno, equipoDos,0,0 );
-					
-					
-					//REALIZO UNA LISTA DE PARTIDOS
-					List<Partido> partidoLista = new ArrayList<Partido>();					
-				 //recorro lista de partidos que se genero con la lectura de el archivo csv e instancio la clase equipo partido
+					//Partido partido = new Partido(equipoUno, equipoDos,0,0 );
+					ArrayList<Partido> partidoLista = new ArrayList<Partido>();		
 				
-					for(ListadoPartidos partidos: listadoPartidos ) {
-
+					Partido partido;	
+				 //recorro lista de partidos que se genero con la lectura de el archivo csv e instancio la clase equipo partido
+				for(ListadoPartidos partidos: listadoPartidos ) {
+					//REALIZO UNA LISTA DE PARTIDOS
+					
+				            partido = new Partido(equipoUno, equipoDos, 0,0);
+                        //System.out.println(partidos);
 						equipoUno.setIdEquipo(partidos.getIdEquipo1());
 						equipoDos.setIdEquipo(partidos.getIdEquipo2());
 						equipoUno.setNombreEquipo(partidos.getNombreEquipo1());
 						equipoDos.setNombreEquipo(partidos.getNombreEquipo2());
 						equipoUno.setDescripcion(partidos.getDescripcionEquipo1());
 						equipoDos.setDescripcion(partidos.getDescripcionEquipo2());	
-						partido.setEquipo1(equipoUno);
-						partido.setEquipo2(equipoDos);
+						
 						partido.setGolesEquipo1(partidos.getGolesEquipo1());
-						partido.setGolesEquipo2(partidos.getGolesEquipo2());
-						//System.out.println(partido);
+					    partido.setGolesEquipo2(partidos.getGolesEquipo2());
+						System.out.println(partido);
 						//System.out.println(equipoUno);
 						//System.out.println(equipoDos);
-						
 						partidoLista.add(partido);
 						
-					}	
+						//partidoLista.add(new Partido(equipoUno, equipoDos, partidos.getGolesEquipo1(),partidos.getGolesEquipo2()));
+						//System.out.println(partidoLista);
+						
+					}
+				//System.out.println(partido);
 					
+				
+					//System.out.println(partidoLista.get(1));
 					
 					for (int i = 0; i < partidoLista.size(); i++) {
-						System.out.println(partidoLista.get(i));
+						System.out.println("partidoLista " + partidoLista.get(i));
 						
 					}
 					//System.out.println("fuera del for");
@@ -88,11 +93,11 @@ public class Principal {
 				//System.out.println(partido.getEquipo2());
 				
 				//BUSCO EN LA LISTA DE PRONOSTICOS LA X
-				Pronostico pronostico = new Pronostico(null, null, null);
+				//Pronostico pronostico = new Pronostico(null, null, null);
 				//System.out.println(listadopronosticos);
 				
 				
-				for(ListadoPronosticos pronosticos :listadopronosticos) {
+				/*for(ListadoPronosticos pronosticos :listadopronosticos) {
 					
 										
 					if(pronosticos.getGanaEquipo1().equals("X")) {
@@ -114,11 +119,11 @@ public class Principal {
 						 pronostico.setEquipo(equipoDos);
 						 //System.out.println("HAY X EN GANADOR EQUIPO2"); 
 						 
-					 }
+					 }*/
 
 					 
 					 //System.out.println(pronostico);
-					
+				
 				}
 				
 				
@@ -131,7 +136,7 @@ public class Principal {
 					
 					
 					
-				} catch (IOException e) {
+				 catch (IOException e) {
 		            e.printStackTrace();	
 			}
 
