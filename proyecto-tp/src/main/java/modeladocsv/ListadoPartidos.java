@@ -3,32 +3,35 @@ package modeladocsv;
 import com.opencsv.bean.CsvBindByPosition;
 
 public class ListadoPartidos {
-
 	@CsvBindByPosition(position= 0)
-	private Integer idEquipo1;
+	private Integer idPartido;
+
 	@CsvBindByPosition(position= 1)
-	private String nombreEquipo1;
+	private Integer idEquipo1;
 	@CsvBindByPosition(position= 2)
-	private String descripcionEquipo1;
+	private String nombreEquipo1;
 	@CsvBindByPosition(position= 3)
-	private Integer golesEquipo1;
+	private String descripcionEquipo1;
 	@CsvBindByPosition(position= 4)
-	private Integer golesEquipo2;
+	private Integer golesEquipo1;
 	@CsvBindByPosition(position= 5)
-	private Integer idEquipo2;
+	private Integer golesEquipo2;
 	@CsvBindByPosition(position= 6)
-	private String nombreEquipo2;
+	private Integer idEquipo2;
 	@CsvBindByPosition(position= 7)
+	private String nombreEquipo2;
+	@CsvBindByPosition(position= 8)
 	private String descripcionEquipo2;
+	
 	
 	
 	
 	@Override
 	public String toString() {
-		return "ListadoPartidos [idEquipo1=" + idEquipo1 + ", nombreEquipo1=" + nombreEquipo1 + ", descripcionEquipo1="
-				+ descripcionEquipo1 + ", golesEquipo1=" + golesEquipo1 + ", golesEquipo2=" + golesEquipo2
-				+ ", idEquipo2=" + idEquipo2 + ", nombreEquipo2=" + nombreEquipo2 + ", descripcionEquipo2="
-				+ descripcionEquipo2 + "]";
+		return "ListadoPartidos [idPartido=" + idPartido + ", idEquipo1=" + idEquipo1 + ", nombreEquipo1="
+				+ nombreEquipo1 + ", descripcionEquipo1=" + descripcionEquipo1 + ", golesEquipo1=" + golesEquipo1
+				+ ", golesEquipo2=" + golesEquipo2 + ", idEquipo2=" + idEquipo2 + ", nombreEquipo2=" + nombreEquipo2
+				+ ", descripcionEquipo2=" + descripcionEquipo2 + "]";
 	}
 	public Integer getIdEquipo1() {
 		return idEquipo1;
@@ -77,6 +80,12 @@ public class ListadoPartidos {
 	}
 	public void setDescripcionEquipo2(String descripcionEquipo2) {
 		this.descripcionEquipo2 = descripcionEquipo2;
+	}
+	public Integer getIdPartido() {
+		return idPartido;
+	}
+	public void setIdPartido(Integer idPartido) {
+		this.idPartido = idPartido;
 	}
 	
 

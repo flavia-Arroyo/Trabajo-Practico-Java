@@ -2,15 +2,15 @@ package clasesProyecto;
 
 public class Equipos {
 	private int idEquipo;
-	private String NombreEquipo;
-	private String Descripcion;
+	private String nombreEquipo;
+	private String descripcion;
 	
 	
 	public Equipos(int idEquipo, String nombreEquipo, String descripcion) {
 		
 		this.idEquipo = idEquipo;
-		this.NombreEquipo = nombreEquipo;
-		this.Descripcion = descripcion;
+		this.nombreEquipo = nombreEquipo;
+		this.descripcion = descripcion;
 	}
 	
 	
@@ -18,7 +18,7 @@ public class Equipos {
 
 	@Override
 	public String toString() {
-		return "Equipos [idEquipo=" + idEquipo + ", NombreEquipo=" + NombreEquipo + ", Descripcion=" + Descripcion
+		return "Equipos [idEquipo=" + idEquipo + ", NombreEquipo=" + nombreEquipo + ", Descripcion=" + descripcion
 				+ "]";
 	}
 
@@ -36,22 +36,24 @@ public class Equipos {
 
 
 	public String getNombreEquipo() {
-		return NombreEquipo;
+		return nombreEquipo;
 	}
 
 
 	public void setNombreEquipo(String nombreEquipo) {
-		NombreEquipo = nombreEquipo;
+		this.nombreEquipo = nombreEquipo;
 	}
 
 
 	public String getDescripcion() {
-		return Descripcion;
+		return descripcion;
 	}
+	
+	
 
 
 	public void setDescripcion(String descripcion) {
-		Descripcion = descripcion;
+		this.descripcion = descripcion;
 	}
 	
 	

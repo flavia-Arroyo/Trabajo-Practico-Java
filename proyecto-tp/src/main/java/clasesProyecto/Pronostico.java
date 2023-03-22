@@ -1,28 +1,81 @@
 package clasesProyecto;
 
 public class Pronostico {
+	private int idPronostico;
+	
+
 	private Partido partido;
 	private Equipos equipo;
 	private Resultado resultadoPronostico;
 	
 	
+	
 	@Override
 	public String toString() {
-		return "Pronostico [partido=" + partido + ", equipo=" + equipo + ", resultadoPronostico=" + resultadoPronostico
-				+ "]";
+		return "Pronostico [idPronostico=" + idPronostico + ", partido=" + partido + ", equipo=" + equipo
+				+ ", resultadoPronostico=" + resultadoPronostico + "]";
 	}
+	
+	
+
+	
+	
 
 
 
-	public Pronostico(Partido partido, Equipos equipo, Resultado resultadoPronostico) {
-
+	
+	
+	
+	
+	public Pronostico(int idPronostico, Partido partido, Equipos equipo, Resultado resultadoPronostico) {
+		
+		this.idPronostico = idPronostico;
 		this.partido = partido;
 		this.equipo = equipo;
 		this.resultadoPronostico = resultadoPronostico;
 	}
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+	public int getIdPronostico() {
+		return idPronostico;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setIdPronostico(int idPronostico) {
+		this.idPronostico = idPronostico;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 	public int obtenerPuntos() {
 		int puntos = 0;
 			
