@@ -2,8 +2,6 @@ package clasesProyecto;
 
 public class Pronostico {
 	private int idPronostico;
-	
-
 	private Partido partido;
 	private Equipos equipo;
 	private Resultado resultadoPronostico;

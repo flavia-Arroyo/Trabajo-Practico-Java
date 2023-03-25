@@ -1,5 +1,7 @@
 package clasesProyecto;
 
+import java.util.ArrayList;
+
 public class Equipos {
 	private int idEquipo;
 	private String nombreEquipo;
@@ -54,6 +56,15 @@ public class Equipos {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+	public static Equipos buscarEquipo(ArrayList<Equipos> equipo, Integer identificador) {
+		for(Equipos equipoenlista : equipo) {
+			if(equipoenlista.getIdEquipo() == identificador) {
+				return equipoenlista;
+			}
+		}
+		return null;
+		
 	}
 	
 	

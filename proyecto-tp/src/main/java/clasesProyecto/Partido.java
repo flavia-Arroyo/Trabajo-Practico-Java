@@ -94,6 +94,8 @@ public class Partido {
 		
 		
 	}
+	
+	
 
 
 	public Equipos getEquipo1() {
