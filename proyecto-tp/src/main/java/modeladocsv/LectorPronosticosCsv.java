@@ -29,6 +29,8 @@ public class LectorPronosticosCsv {
 					.build()
 					.parse();
 			
+			
+			
 		}catch (IOException e) {
 	        e.printStackTrace();
 		}

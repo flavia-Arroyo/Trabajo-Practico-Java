@@ -5,7 +5,6 @@ import com.opencsv.bean.CsvBindByPosition;
 public class ListadoPartidos {
 	@CsvBindByPosition(position= 0)
 	private Integer idPartido;
-
 	@CsvBindByPosition(position= 1)
 	private Integer idEquipo1;
 	@CsvBindByPosition(position= 2)

@@ -29,6 +29,7 @@ public class Principal {
 		//lector del archivo de pronosticos
 		LectorPronosticosCsv lectorArchivoPro = new LectorPronosticosCsv(rutaPronostico);
 		
+		
 	
 		//obtengo las lineas del archivo CSV correspondiente a partidos
 		lectorArchivos.parsearArchivo();
