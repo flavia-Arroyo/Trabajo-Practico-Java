@@ -12,6 +12,7 @@ import org.apache.commons.collections.bag.SynchronizedSortedBag;
 
 import modeladocsv.ListadoPartidos;
 import modeladocsv.ListadoPronosticos;
+import modeladocsv.NumeroDeCampos;
 import modeladocsv.LectorResultadosCsv;
 import modeladocsv.LectorPronosticosCsv;
 
@@ -25,14 +26,16 @@ public class Principal {
 		String rutaArchivo = "src\\main\\resources\\resultados.csv";
 		String rutaPronostico = "src\\main\\resources\\pronostico.csv";
 		
-		LectorResultadosCsv lectorArchivos = new LectorResultadosCsv(rutaArchivo);
+		LectorResultadosCsv lectorArchivos = new LectorResultadosCsv(rutaArchivo); //debe lanzar excepciones
 		//lector del archivo de pronosticos
 		LectorPronosticosCsv lectorArchivoPro = new LectorPronosticosCsv(rutaPronostico);
 		
+		//verifico la cantidad de campos del archivo resultados
+		lectorArchivos.cantidadCampos();
 		
 	
 		//obtengo las lineas del archivo CSV correspondiente a partidos
-		lectorArchivos.parsearArchivo();
+		//lectorArchivos.parsearArchivo();
 		
 		//obtiene las lineas del archivo csv de pronosticos
 		lectorArchivoPro.parsearPronostico();

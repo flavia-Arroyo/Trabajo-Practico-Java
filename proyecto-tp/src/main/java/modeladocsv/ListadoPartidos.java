@@ -12,9 +12,9 @@ public class ListadoPartidos {
 	@CsvBindByPosition(position= 3)
 	private String descripcionEquipo1;
 	@CsvBindByPosition(position= 4)
-	private Integer golesEquipo1;
+	private String golesEquipo1;
 	@CsvBindByPosition(position= 5)
-	private Integer golesEquipo2;
+	private String golesEquipo2;
 	@CsvBindByPosition(position= 6)
 	private Integer idEquipo2;
 	@CsvBindByPosition(position= 7)
@@ -25,13 +25,16 @@ public class ListadoPartidos {
 	
 	
 	
-	@Override
+	/*@Override
 	public String toString() {
 		return "ListadoPartidos [idPartido=" + idPartido + ", idEquipo1=" + idEquipo1 + ", nombreEquipo1="
 				+ nombreEquipo1 + ", descripcionEquipo1=" + descripcionEquipo1 + ", golesEquipo1=" + golesEquipo1
 				+ ", golesEquipo2=" + golesEquipo2 + ", idEquipo2=" + idEquipo2 + ", nombreEquipo2=" + nombreEquipo2
 				+ ", descripcionEquipo2=" + descripcionEquipo2 + "]";
-	}
+	}*/
+	
+	
+	
 	public Integer getIdEquipo1() {
 		return idEquipo1;
 	}
@@ -50,18 +53,59 @@ public class ListadoPartidos {
 	public void setDescripcionEquipo1(String descripcionEquipo1) {
 		this.descripcionEquipo1 = descripcionEquipo1;
 	}
-	public Integer getGolesEquipo1() {
-		return golesEquipo1;
+	public Integer getGolesEquipo1() throws TipoDeDatosGoles {
+		 int temporal = Integer.parseInt(golesEquipo1);
+		 if(temporal >= 0) {
+			 return temporal;
+			 
+		 }
+		 else {
+			 throw new TipoDeDatosGoles();
+		 }
+		
+		
 	}
-	public void setGolesEquipo1(Integer golesEquipo1) {
-		this.golesEquipo1 = golesEquipo1;
+	public Integer getGolesEquipo2() throws TipoDeDatosGoles {
+			 int temporal = Integer.parseInt(golesEquipo2);
+			 if(temporal >= 0) {
+				 return temporal;
+				 
+			 }
+			 else {
+				 throw new TipoDeDatosGoles();
+			 }
+			
+			
+		}
+	
+	/*public Integer cambiarTipoGolesEquipo1(String golesEquipo1) throws TipoDeDatosGoles{
+		
+		
+		int golesEquipo = Integer.parseInt(golesEquipo1);
+		if(golesEquipo >= 0) {
+			return golesEquipo;
+		}else {
+			throw new TipoDeDatosGoles();
+		}
+		
+		
+		
 	}
-	public Integer getGolesEquipo2() {
-		return golesEquipo2;
-	}
-	public void setGolesEquipo2(Integer golesEquipo2) {
-		this.golesEquipo2 = golesEquipo2;
-	}
+    public Integer cambiarTipoGolesEquipo2(String golesEquipo2) throws TipoDeDatosGoles {
+    	int golesEquipo2n = Integer.parseInt(golesEquipo2);
+		if(golesEquipo2n >= 0) {
+			return golesEquipo2n;
+		}else {
+			throw new TipoDeDatosGoles();
+		}
+				
+	}*/
+	
+	
+	
+	
+	
+	
 	public Integer getIdEquipo2() {
 		return idEquipo2;
 	}

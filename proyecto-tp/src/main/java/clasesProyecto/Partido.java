@@ -4,8 +4,8 @@ public class Partido {
 	private int idPartido;
 	private Equipos equipo1;
 	private Equipos equipo2;
-	private int golesEquipo1;
-	private int golesEquipo2;
+	private Integer golesEquipo1;
+	private Integer golesEquipo2;
 	
 	
 	
@@ -14,7 +14,7 @@ public class Partido {
 	
 	
 	
-	public Partido(int idPartido, Equipos equipo1, Equipos equipo2, int golesEquipo1, int golesEquipo2) {
+	public Partido(int idPartido, Equipos equipo1, Equipos equipo2, Integer golesEquipo1, Integer golesEquipo2) {
 		
 		this.idPartido = idPartido;
 		this.equipo1 = equipo1;
