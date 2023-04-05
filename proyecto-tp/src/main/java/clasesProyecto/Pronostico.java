@@ -1,5 +1,7 @@
 package clasesProyecto;
 
+import java.util.ArrayList;
+
 public class Pronostico {
 	private int idPronostico;
 	private Partido partido;
@@ -121,6 +123,9 @@ public class Pronostico {
 	public void setResultadoPronostico(Resultado resultadoPronostico) {
 		this.resultadoPronostico = resultadoPronostico;
 	}
+	
+	
+	
 	
 	
 	

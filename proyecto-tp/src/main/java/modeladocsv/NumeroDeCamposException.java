@@ -1,23 +1,24 @@
 package modeladocsv;
 
-public class NumeroDeCampos extends Exception{
+public class NumeroDeCamposException extends Exception{
 	
+	public NumeroDeCamposException(String mje) {
+		
+		super(mje);
+	}
 	
-		private final int numeroCampos;
+		/*private final int numeroCampos;
 
-		public NumeroDeCampos(int numeroCampos) {
-			
-			this.numeroCampos = numeroCampos;
-		}
+		
 
 		public int getNumeroCampos() {
 			return numeroCampos;
 		}
-		
-	    @Override
+		*/
+	   /* @Override
 		public String getMessage() {
 			return "el archivo tiene mas campos que los requeridos";
-		}
+		}*/
 		
 		
 		

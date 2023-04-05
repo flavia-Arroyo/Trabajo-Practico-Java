@@ -1,8 +1,7 @@
 package modeladocsv;
 
 import java.io.BufferedReader;
-
-
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,34 +26,61 @@ public class LectorResultadosCsv {
 		
 	}	
 	
-	public void cantidadCampos()  {
+	public boolean  cantidadCampos()  {
 		int contadorCol = 0;
-		int numMaxCol = 9;
+		int numCol = 9;
+		boolean colCorrecta = true;
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(this.rutaArchivo));
+			BufferedReader br;
+			
+			br = new BufferedReader(new FileReader(this.rutaArchivo));
+			
 			String linea;
-			while((linea = br.readLine()) != null) {
-				String[] colum = linea.split(",");
-				contadorCol = colum.length;
+		
+				while((linea = br.readLine()) != null) {
+					String[] colum = linea.split(",");
+					contadorCol = colum.length;
+					
+					if(contadorCol != numCol) {
+						
+						colCorrecta = false; 
+						break;
+						
+						//break;//capto cuando no se cumpla las columnas
+					}
 				
-			}
-			
-			if(contadorCol == numMaxCol){
-				parsearArchivo();
-				
-			}
-			
-			
+			} 
+				if(!colCorrecta) {
+					throw new NumeroDeCamposException("el numero de campos es incorrecto: tiene " +  contadorCol + "  deberia tener: " + numCol);
+					
+					
+				}
 			
 			
-		} catch(NumeroDeCampos()){
-			if(contadorCol != numMaxCol) {
-				 throw  new NumeroDeCampos(contadorCol);
-			}
 			
-		}		
+		}catch(IOException e) {
+			
+		} catch (NumeroDeCamposException e) {
+			// TODO Auto-generated catch block
+			System.out.println("se produzco un error  " + e);
+			
+		}
+		
+		return colCorrecta;
+		
+	}
+			
+			
+			
+			
+		
+			
+			
+
 			// TODO: handle exception
-		}	
+			
+	
+	
 	public void parsearArchivo() {
 		List<ListadoPartidos> listadoResPartidos = null;
 		
@@ -67,12 +93,14 @@ public class LectorResultadosCsv {
 					.withSeparator(',')  //aca pongo coma por que asi lo pude generar al csv en resultados.csv
 					.build()
 					.parse();
+			
 			      
 	}catch (IOException e) {
         e.printStackTrace();
     }
 		
 		this.lineaArchivo = listadoResPartidos;
+		
 		
 	
 		
@@ -121,19 +149,22 @@ public class LectorResultadosCsv {
 			Equipos unequipo2 = Equipos.buscarEquipo(equipo, linea.getIdEquipo2());
 			
 			Partido unPartido = null;
-			try {
-				unPartido = new Partido(linea.getIdPartido(),
-						unequipo1,
-						unequipo2,
-						
-						linea.getGolesEquipo1(),
-						linea.getGolesEquipo2()
-						);
-			} catch (TipoDeDatosGoles e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			partidos.add(unPartido);		
+			
+				
+					unPartido = new Partido(linea.getIdPartido(),
+							unequipo1,
+							unequipo2,				
+							
+							
+							linea.getGolesEquipo1(),
+							linea.getGolesEquipo2()
+							);
+				
+			
+			partidos.add(unPartido);
+				
+					
+			
 			
 		}		
 		return partidos;

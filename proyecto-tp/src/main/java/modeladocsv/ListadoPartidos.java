@@ -2,7 +2,7 @@ package modeladocsv;
 
 import com.opencsv.bean.CsvBindByPosition;
 
-public class ListadoPartidos {
+public class ListadoPartidos  {
 	@CsvBindByPosition(position= 0)
 	private Integer idPartido;
 	@CsvBindByPosition(position= 1)
@@ -21,6 +21,7 @@ public class ListadoPartidos {
 	private String nombreEquipo2;
 	@CsvBindByPosition(position= 8)
 	private String descripcionEquipo2;
+	
 	
 	
 	
@@ -53,53 +54,60 @@ public class ListadoPartidos {
 	public void setDescripcionEquipo1(String descripcionEquipo1) {
 		this.descripcionEquipo1 = descripcionEquipo1;
 	}
-	public Integer getGolesEquipo1() throws TipoDeDatosGoles {
-		 int temporal = Integer.parseInt(golesEquipo1);
-		 if(temporal >= 0) {
-			 return temporal;
+	/*public Integer getGolesEquipo1() throws TipoDeDatosGolesException {
+		
+		int temporal = Integer.parseInt(golesEquipo1);
+		 return temporal; 
+		
+		
+	}
+	public Integer getGolesEquipo2() throws TipoDeDatosGolesException{
+		
+			int temporal = Integer.parseInt(golesEquipo2);
+			
+		
 			 
-		 }
-		 else {
-			 throw new TipoDeDatosGoles();
-		 }
-		
-		
-	}
-	public Integer getGolesEquipo2() throws TipoDeDatosGoles {
-			 int temporal = Integer.parseInt(golesEquipo2);
-			 if(temporal >= 0) {
-				 return temporal;
-				 
-			 }
-			 else {
-				 throw new TipoDeDatosGoles();
-			 }
+			 return temporal;
 			
 			
-		}
+		}*/
 	
-	/*public Integer cambiarTipoGolesEquipo1(String golesEquipo1) throws TipoDeDatosGoles{
-		
-		
-		int golesEquipo = Integer.parseInt(golesEquipo1);
-		if(golesEquipo >= 0) {
-			return golesEquipo;
-		}else {
-			throw new TipoDeDatosGoles();
+	public Integer getGolesEquipo1() {
+		int temporal = -1;
+		try {
+			temporal = Integer.parseInt(golesEquipo1);
+			return temporal;
+			
+			
+		}catch(NumberFormatException ex ) {
+			System.out.println("los goles del equipo 1 no tienen el formado de numero");
 		}
-		
+		return temporal;
+			
+			
+			
+					
 		
 		
 	}
-    public Integer cambiarTipoGolesEquipo2(String golesEquipo2) throws TipoDeDatosGoles {
-    	int golesEquipo2n = Integer.parseInt(golesEquipo2);
-		if(golesEquipo2n >= 0) {
-			return golesEquipo2n;
-		}else {
-			throw new TipoDeDatosGoles();
+	
+	
+    public Integer getGolesEquipo2()  {
+    	int temporal = -1;
+		try {
+			temporal = Integer.parseInt(golesEquipo2);
+			return temporal;
+			
+			
+		}catch(NumberFormatException ex ) {
+			System.out.println("los goles del equipo 2 no tienen el formado de numero");
 		}
+		return temporal;
+			
+			
+    	
 				
-	}*/
+	}
 	
 	
 	

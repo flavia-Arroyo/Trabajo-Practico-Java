@@ -12,7 +12,7 @@ import org.apache.commons.collections.bag.SynchronizedSortedBag;
 
 import modeladocsv.ListadoPartidos;
 import modeladocsv.ListadoPronosticos;
-import modeladocsv.NumeroDeCampos;
+import modeladocsv.NumeroDeCamposException;
 import modeladocsv.LectorResultadosCsv;
 import modeladocsv.LectorPronosticosCsv;
 
@@ -23,7 +23,7 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
-		String rutaArchivo = "src\\main\\resources\\resultados.csv";
+		String rutaArchivo = "src\\main\\resources\\resultados-errorcol2.csv";
 		String rutaPronostico = "src\\main\\resources\\pronostico.csv";
 		
 		LectorResultadosCsv lectorArchivos = new LectorResultadosCsv(rutaArchivo); //debe lanzar excepciones
@@ -31,14 +31,26 @@ public class Principal {
 		LectorPronosticosCsv lectorArchivoPro = new LectorPronosticosCsv(rutaPronostico);
 		
 		//verifico la cantidad de campos del archivo resultados
-		lectorArchivos.cantidadCampos();
+		boolean correcto =lectorArchivos.cantidadCampos();
+		if(correcto) {
+			//obtengo las lineas del archivo CSV correspondiente a partidos
+			lectorArchivos.parsearArchivo();
+			
+		}
 		
-	
 		//obtengo las lineas del archivo CSV correspondiente a partidos
 		//lectorArchivos.parsearArchivo();
+			
+		
+				
+			
+		
+		
+	
+		
 		
 		//obtiene las lineas del archivo csv de pronosticos
-		lectorArchivoPro.parsearPronostico();
+		//lectorArchivoPro.parsearPronostico();
 		
 		//genera lista con equipos
 		ArrayList<Equipos> equipos = lectorArchivos.listarEquipos();
@@ -53,6 +65,8 @@ public class Principal {
 		
 		// determinar el puntaje del pronosticador
 		int puntaje = 0;
+	
+	
 		for(Pronostico pronosticos :pronostico) {
 			
 			if(pronosticos.getPartido().obtenerResultado(pronosticos.getEquipo()).equals(pronosticos.getResultadoPronostico())){
