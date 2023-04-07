@@ -30,6 +30,12 @@ public class Participantes {
 	public void setNombreParticipante(String nombreParticipante) {
 		this.nombreParticipante = nombreParticipante;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Participantes [idParticipante=" + idParticipante + ", nombreParticipante=" + nombreParticipante + "]";
+	}
 	
 	
 	

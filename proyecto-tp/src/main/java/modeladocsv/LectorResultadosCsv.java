@@ -12,6 +12,7 @@ import com.opencsv.bean.CsvToBeanBuilder;
 
 import clasesProyecto.Equipos;
 import clasesProyecto.Partido;
+import clasesProyecto.Rondas;
 
 public class LectorResultadosCsv {
 	String rutaArchivo;
@@ -28,7 +29,7 @@ public class LectorResultadosCsv {
 	
 	public boolean  cantidadCampos()  {
 		int contadorCol = 0;
-		int numCol = 9;
+		int numCol = 11;
 		boolean colCorrecta = true;
 		try {
 			BufferedReader br;
@@ -44,12 +45,10 @@ public class LectorResultadosCsv {
 					if(contadorCol != numCol) {
 						
 						colCorrecta = false; 
-						break;
-						
-						//break;//capto cuando no se cumpla las columnas
+						break;						
 					}
 				
-			} 
+			   } 
 				if(!colCorrecta) {
 					throw new NumeroDeCamposException("el numero de campos es incorrecto: tiene " +  contadorCol + "  deberia tener: " + numCol);
 					
@@ -61,7 +60,7 @@ public class LectorResultadosCsv {
 		}catch(IOException e) {
 			
 		} catch (NumeroDeCamposException e) {
-			// TODO Auto-generated catch block
+			
 			System.out.println("se produzco un error  " + e);
 			
 		}
@@ -70,16 +69,6 @@ public class LectorResultadosCsv {
 		
 	}
 			
-			
-			
-			
-		
-			
-			
-
-			// TODO: handle exception
-			
-	
 	
 	public void parsearArchivo() {
 		List<ListadoPartidos> listadoResPartidos = null;
@@ -100,6 +89,7 @@ public class LectorResultadosCsv {
     }
 		
 		this.lineaArchivo = listadoResPartidos;
+	
 		
 		
 	
@@ -151,23 +141,52 @@ public class LectorResultadosCsv {
 			Partido unPartido = null;
 			
 				
-					unPartido = new Partido(linea.getIdPartido(),
+					unPartido = new Partido(
+							linea.getIdPartido(),
+							linea.getIdRonda(),
 							unequipo1,
-							unequipo2,				
-							
-							
+							unequipo2,							
 							linea.getGolesEquipo1(),
 							linea.getGolesEquipo2()
 							);
 				
 			
 			partidos.add(unPartido);
+			
 				
 					
 			
 			
 		}		
 		return partidos;
+		
+		
+	}
+	
+	
+	public ArrayList<Rondas> listarRondas(ArrayList<Partido> partido){
+		boolean rondaExistente = false;
+		ArrayList<Rondas> ronda = new ArrayList();
+		
+		for(ListadoPartidos lineaPartido: this.lineaArchivo) {
+			rondaExistente = false;
+			Rondas unaRonda = new Rondas(lineaPartido.getIdRonda(), lineaPartido.getNumRonda(),partido);
+			
+			for (Rondas rondaCargada: ronda) {
+				if(unaRonda.getIdRonda() == rondaCargada.getIdRonda()) {
+					rondaExistente = true;
+				}
+				
+			}
+			
+			if(!rondaExistente) {
+				ronda.add(unaRonda);
+				
+			}
+			
+					
+		}
+		return ronda;
 		
 	}
 	
