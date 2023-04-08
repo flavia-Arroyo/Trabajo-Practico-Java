@@ -71,7 +71,7 @@ public class Pronostico {
 	}
 
 
-	public float obtenerPuntos() {
+	public int obtenerPuntos() {
 		//float puntos = 0;
 			
 		Resultado resultadoReal = partido.obtenerResultado(equipo, partido.getIdronda());
@@ -83,6 +83,27 @@ public class Pronostico {
 		}
 		
 	
+	}
+	
+	public int puntosApostador(String apostador) {
+		int parcial= 0;
+		int acumulador = 0;
+		
+		
+		if (this.participante.equals(apostador)) {
+				
+			parcial = this.obtenerPuntos();		
+		}
+
+		if(parcial >0) {
+			acumulador += parcial;
+			
+		}
+		
+		return acumulador;
+		
+		
+		
 	}
 	
 	
