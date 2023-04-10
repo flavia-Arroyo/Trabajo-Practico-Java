@@ -88,17 +88,20 @@ public class Pronostico {
 	public int puntosApostador(String apostador) {
 		int parcial= 0;
 		int acumulador = 0;
+		this.participante.compareTo(apostador);
+		
 		
 		
 		if (this.participante.equals(apostador)) {
 				
-			parcial = this.obtenerPuntos();		
+			parcial = this.obtenerPuntos();	
+			if(parcial >0) {
+				acumulador = parcial;
+				
+			}
 		}
 
-		if(parcial >0) {
-			acumulador += parcial;
-			
-		}
+		
 		
 		return acumulador;
 		

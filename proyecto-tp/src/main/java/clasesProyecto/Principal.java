@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -44,39 +45,40 @@ public class Principal {
 		//genera lista con equipos
 		ArrayList<Equipos> equipos = lectorArchivos.listarEquipos();
 
-		//genero la lista de pronosticadores
-		ArrayList<Participantes>participantes = lectorArchivoPro.listarParticipantes();
-		
-		
 		//generar lista de partidos
 		ArrayList<Partido> partido = lectorArchivos.listarPartidos(equipos);
+		
 		//genero lista de rondas
 		ArrayList<Rondas> rondas = lectorArchivos.listarRondas(partido);
 	
 		
 		//genera lista con pronosticos
 		ArrayList<Pronostico> pronostico = lectorArchivoPro.listarPronosticos(rondas);
+		/* for(Pronostico pron:pronostico) {
+			 System.out.println(pron);
+		 }
 		
-		
-		String apostador= null;
+	   
+		/*String apostador= null;
 		boolean mismoapostador = false;
 		int total= 0;
+		int contadorPronosticos = 0;
+		HashMap<String, Integer> puntajeApostadores = new HashMap<String,Integer>();
 	    for(Pronostico pron:pronostico) {
-	       apostador = pron.getParticipante();
-	      
-	       total = pron.puntosApostador(apostador);
-	        	    	
-
-			System.out.println("El Apostador:  " + apostador +"   obtuvo un puntaje Total : " + total); 
-	      	
-			
+	    	apostador = pron.getParticipante();
+	    	total += pron.obtenerPuntos();
+	    	
+	    	  
+	    	  puntajeApostadores.put(apostador, total);
 	    	
 	    }
+	   
 
-	
 	  
 	    
-	    
+	    System.out.println(puntajeApostadores);*/
+		
+		
 	}
 
 	

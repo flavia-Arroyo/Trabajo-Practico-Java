@@ -1,14 +1,28 @@
 package clasesProyecto;
 
+import java.util.ArrayList;
+
 public class Participantes {
 	private int idParticipante;
 	private String nombreParticipante;
+	private Pronostico pronostico;
 	
 	
-	public Participantes(int idParticipante, String nombreParticipante) {
+
+
+	
+
+
+	public Participantes(int idParticipante, String nombreParticipante, Pronostico pronostico) {
 		
 		this.idParticipante = idParticipante;
 		this.nombreParticipante = nombreParticipante;
+		this.pronostico = pronostico;
+	}
+
+
+	public Pronostico getPronostico() {
+		return pronostico;
 	}
 
 
@@ -34,8 +48,11 @@ public class Participantes {
 
 	@Override
 	public String toString() {
-		return "Participantes [idParticipante=" + idParticipante + ", nombreParticipante=" + nombreParticipante + "]";
+		return "Participantes [idParticipante=" + idParticipante + ", nombreParticipante=" + nombreParticipante
+				+ ", pronostico=" + pronostico + "]";
 	}
+
+
 	
 	
 	
