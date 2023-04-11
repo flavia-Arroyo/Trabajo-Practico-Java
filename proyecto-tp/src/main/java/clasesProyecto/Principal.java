@@ -54,9 +54,9 @@ public class Principal {
 		
 		//genera lista con pronosticos
 		ArrayList<Pronostico> pronostico = lectorArchivoPro.listarPronosticos(rondas);
-		/* for(Pronostico pron:pronostico) {
-			 System.out.println(pron);
-		 }
+		
+		
+		
 		
 	   
 		/*String apostador= null;

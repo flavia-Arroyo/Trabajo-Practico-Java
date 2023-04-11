@@ -71,45 +71,21 @@ public class Pronostico {
 	}
 
 
-	public int obtenerPuntos() {
+	public float obtenerPuntos() {
 		//float puntos = 0;
 			
 		Resultado resultadoReal = partido.obtenerResultado(equipo, partido.getIdronda());
 		if(this.resultadoPronostico.equals(resultadoReal)){
 			
-			return  1;
+			return  0.5f;
 		} else {
 			return 0; 
 		}
 		
 	
 	}
-	
-	public int puntosApostador(String apostador) {
-		int parcial= 0;
-		int acumulador = 0;
-		this.participante.compareTo(apostador);
-		
-		
-		
-		if (this.participante.equals(apostador)) {
-				
-			parcial = this.obtenerPuntos();	
-			if(parcial >0) {
-				acumulador = parcial;
-				
-			}
-		}
 
-		
-		
-		return acumulador;
-		
-		
-		
-	}
-	
-	
+
 
 	public Equipos getEquipo() {
 		return equipo;

@@ -1,11 +1,32 @@
+
 package clasesProyecto;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Participantes {
 	private int idParticipante;
 	private String nombreParticipante;
-	private Pronostico pronostico;
+	private ArrayList<Pronostico> pronostico;
+	HashMap<Integer, Float>totalesPart = new HashMap<Integer,Float>();
+	
+	public void totalesParticipante (String participante) {
+		float totales = 0;
+		if(this.nombreParticipante.equals(participante)) {
+			for(Pronostico pro:pronostico) {
+				float parcial = pro.obtenerPuntos();
+				totales += parcial;
+				totalesPart.put(pro.getPartido().getIdronda(), totales);
+				
+				
+			}
+			
+		}
+		System.out.println(totalesPart);
+		
+	}
+	
+	
 	
 	
 
@@ -13,18 +34,42 @@ public class Participantes {
 	
 
 
-	public Participantes(int idParticipante, String nombreParticipante, Pronostico pronostico) {
+	public Participantes(int idParticipante, String nombreParticipante) {
 		
 		this.idParticipante = idParticipante;
 		this.nombreParticipante = nombreParticipante;
-		this.pronostico = pronostico;
+		pronostico = new ArrayList<Pronostico>();
 	}
+	
+	public void agregarPronostico(Pronostico p) {
+		if(!existePronostico(p)) {
+			this.pronostico.add(p);
+			
+		}
+		
+	}
+	
+	public boolean existePronostico(Pronostico p) {
+		for(Pronostico pron: pronostico) {
+			if((pron.getPartido() == p.getPartido()) && (pron.getEquipo() == p.getEquipo())) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
 
 
-	public Pronostico getPronostico() {
+
+
+	public ArrayList<Pronostico> getPronostico() {
 		return pronostico;
 	}
 
+	public void setPronostico(ArrayList<Pronostico> pronostico) {
+		this.pronostico = pronostico;
+	}
 
 	public int getIdParticipante() {
 		return idParticipante;
@@ -45,13 +90,14 @@ public class Participantes {
 		this.nombreParticipante = nombreParticipante;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Participantes [idParticipante=" + idParticipante + ", nombreParticipante=" + nombreParticipante
 				+ ", pronostico=" + pronostico + "]";
 	}
 
+
+	
 
 	
 	
