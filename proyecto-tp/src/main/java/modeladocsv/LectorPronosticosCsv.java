@@ -46,12 +46,12 @@ public class LectorPronosticosCsv {
 	}
 	
 
-	
+	ArrayList<Participantes> participante;
 	public ArrayList<Pronostico> listarPronosticos(ArrayList<Rondas> ronda){
-		
-		boolean partExistente = false;
-		ArrayList<Participantes> participante = new ArrayList();
+    	boolean partExistente = false;
+	    participante = new ArrayList();
 		ArrayList<Pronostico> pronostico = new ArrayList();
+		
 		
 		
 		for(ListadoPronosticos lineaPronostico : this.lineaPronostico) {
@@ -81,6 +81,7 @@ public class LectorPronosticosCsv {
 						
 						);
 						unParticipante.agregarPronostico(unPronostico);
+						participante.add(unParticipante);
 						
 				}
 				for(Rondas rondaPartidos : ronda) {
@@ -100,6 +101,7 @@ public class LectorPronosticosCsv {
 							
 						);
 						unParticipante.agregarPronostico(unPronostico);
+						participante.add(unParticipante);
 						
 				}
 			
@@ -130,6 +132,7 @@ public class LectorPronosticosCsv {
 								
 							);
 						unParticipante.agregarPronostico(unPronostico);
+						participante.add(unParticipante);
 						
 				}
 				
@@ -154,6 +157,7 @@ public class LectorPronosticosCsv {
 								
 							);
 						unParticipante.agregarPronostico(unPronostico);
+						participante.add(unParticipante);
 						}
 			
 				
@@ -183,6 +187,7 @@ public class LectorPronosticosCsv {
 							
 								);
 						unParticipante.agregarPronostico(unPronostico);
+						participante.add(unParticipante);
 						
 					}
 
@@ -207,22 +212,46 @@ public class LectorPronosticosCsv {
 								);
 						unParticipante.agregarPronostico(unPronostico);
 						
+						participante.add(unParticipante);
+						
 						
 					}
 				
 			
-			}
+			}//fin gana 2
 			
 			
-		}
+			
+		}//fin de recorrer el for listado pronostico
+		/*for(Participantes part:participante) {
+			System.out.println(part);
+		}*/
 		
 		
 		return pronostico;
 		
 		
 		
-	}	
+		
+	}
+	
+	public ArrayList<Participantes> mostrarListadoParticipante(){
+		
+		return participante;
+		
+	}
+
+
+	
 	
 	
 	
 }
+	
+	
+	
+	
+
+
+
+

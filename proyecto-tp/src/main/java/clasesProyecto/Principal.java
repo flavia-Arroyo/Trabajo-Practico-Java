@@ -55,7 +55,12 @@ public class Principal {
 		//genera lista con pronosticos
 		ArrayList<Pronostico> pronostico = lectorArchivoPro.listarPronosticos(rondas);
 		
+		ArrayList<Participantes> participante = lectorArchivoPro.mostrarListadoParticipante();
 		
+		for(Participantes part:participante) {
+			//System.out.println(part);
+			part.totalesParticipante(part.getNombreParticipante());
+		}
 		
 		
 	   

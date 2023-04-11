@@ -15,14 +15,18 @@ public class Participantes {
 		if(this.nombreParticipante.equals(participante)) {
 			for(Pronostico pro:pronostico) {
 				float parcial = pro.obtenerPuntos();
-				totales += parcial;
-				totalesPart.put(pro.getPartido().getIdronda(), totales);
+				if(parcial >0) {
+					totales += parcial;
+					totalesPart.put(pro.getPartido().getIdronda(), totales);
+					
+				}
+				
 				
 				
 			}
 			
 		}
-		System.out.println(totalesPart);
+		System.out.println("el participante   " + participante + totalesPart);
 		
 	}
 	
