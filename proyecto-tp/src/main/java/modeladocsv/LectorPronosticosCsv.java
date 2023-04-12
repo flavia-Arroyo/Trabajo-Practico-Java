@@ -45,11 +45,53 @@ public class LectorPronosticosCsv {
 		
 	}
 	
+	
+	
+	
+	public ArrayList<Participantes> listarParticipantes(ArrayList<Pronostico> pronostico){
+		ArrayList<Participantes> participante =new ArrayList();
+		boolean partExistente = false;
+		
+		for(ListadoPronosticos lineaPronostico : this.lineaPronostico) {
+			partExistente = false;
+			//llama al constructor
+			Participantes nuevoParticipante = new Participantes(
+					lineaPronostico.getIdParticipante(),
+					lineaPronostico.getNombreParticipante()
+					
+					);
+			for(Participantes partCargado: participante) {
+				if(nuevoParticipante.getIdParticipante() == partCargado.getIdParticipante()) {
+					partExistente = true;
+					break;
+					
+				}
+				
+			}
+			//agrego un nuevo participante en la lista 
+			if(!partExistente) {
+				participante.add(nuevoParticipante);
+			}
+			
+			for(Pronostico pron:pronostico) {
+				if(pron.getParticipante().equals(nuevoParticipante.getNombreParticipante())) {
+					nuevoParticipante.agregarPronostico(pron);
+				}
+			}
+			
+			
+		}
+		
+		return participante;
+	}
+	
+	
+	
 
-	ArrayList<Participantes> participante;
+	//ArrayList<Participantes> participante;
 	public ArrayList<Pronostico> listarPronosticos(ArrayList<Rondas> ronda){
-    	boolean partExistente = false;
-	    participante = new ArrayList();
+    	//boolean partExistente = false;
+	    //participante = new ArrayList();
 		ArrayList<Pronostico> pronostico = new ArrayList();
 		
 		
@@ -75,13 +117,24 @@ public class LectorPronosticosCsv {
 								);
 						pronostico.add(unPronostico);
 						
-						Participantes unParticipante = new Participantes(
+						/*Participantes unParticipante = new Participantes(
 							idParticipante,
 							nombreParticipante
 						
 						);
 						unParticipante.agregarPronostico(unPronostico);
-						participante.add(unParticipante);
+						for(Participantes particCargado:participante) {
+							if(particCargado.getIdParticipante() == unParticipante.getIdParticipante()) {
+								partExistente  = true;
+								break;
+							}
+						}
+						if(!partExistente) {
+							
+							participante.add(unParticipante);
+							
+						}*/
+						
 						
 				}
 				for(Rondas rondaPartidos : ronda) {
@@ -95,14 +148,23 @@ public class LectorPronosticosCsv {
 									
 								);
 						pronostico.add(unPronostico);
-						Participantes unParticipante = new Participantes(
+						/*Participantes unParticipante = new Participantes(
 							idParticipante,
 							nombreParticipante
 							
 						);
 						unParticipante.agregarPronostico(unPronostico);
-						participante.add(unParticipante);
+						for(Participantes particCargado:participante) {
+							if(particCargado.getIdParticipante() == unParticipante.getIdParticipante()) {
+								partExistente  = true;
+								break;
+							}
+						}
+						if(!partExistente) {
 						
+							participante.add(unParticipante);
+							
+						}*/
 				}
 			
 				
@@ -126,13 +188,23 @@ public class LectorPronosticosCsv {
 								);
 						pronostico.add(unPronostico);
 						
-						Participantes unParticipante = new Participantes(
+						/*Participantes unParticipante = new Participantes(
 								idParticipante,
 								nombreParticipante
 								
 							);
 						unParticipante.agregarPronostico(unPronostico);
-						participante.add(unParticipante);
+						for(Participantes particCargado:participante) {
+							if(particCargado.getIdParticipante() == unParticipante.getIdParticipante()) {
+								partExistente  = true;
+								break;
+							}
+						}
+						if(!partExistente) {
+							
+							participante.add(unParticipante);
+							
+						}*/
 						
 				}
 				
@@ -151,13 +223,24 @@ public class LectorPronosticosCsv {
 								
 								);
 						pronostico.add(unPronostico);
-						Participantes unParticipante = new Participantes(
+						/*Participantes unParticipante = new Participantes(
 								idParticipante,
 								nombreParticipante
 								
 							);
 						unParticipante.agregarPronostico(unPronostico);
-						participante.add(unParticipante);
+						for(Participantes particCargado:participante) {
+							if(particCargado.getIdParticipante() == unParticipante.getIdParticipante()) {
+								partExistente  = true;
+								break;
+							}
+						}
+						if(!partExistente) {
+							
+							participante.add(unParticipante);
+							
+						}*/
+						
 						}
 			
 				
@@ -181,13 +264,23 @@ public class LectorPronosticosCsv {
 								Resultado.GANADOR
 								);
 						pronostico.add(unPronostico);
-						Participantes unParticipante = new Participantes(
+						/*Participantes unParticipante = new Participantes(
 								idParticipante,
 								nombreParticipante
 							
 								);
 						unParticipante.agregarPronostico(unPronostico);
-						participante.add(unParticipante);
+						for(Participantes particCargado:participante) {
+							if(particCargado.getIdParticipante() == unParticipante.getIdParticipante()) {
+								partExistente  = true;
+								break;
+							}
+						}
+						if(!partExistente) {
+						
+							participante.add(unParticipante);
+							
+						}*/
 						
 					}
 
@@ -205,14 +298,24 @@ public class LectorPronosticosCsv {
 								
 								);
 						pronostico.add(unPronostico);
-						Participantes unParticipante = new Participantes(
+						/*Participantes unParticipante = new Participantes(
 								idParticipante,
 								nombreParticipante
 								
 								);
 						unParticipante.agregarPronostico(unPronostico);
+						for(Participantes particCargado:participante) {
+							if(particCargado.getIdParticipante() == unParticipante.getIdParticipante()) {
+								partExistente  = true;
+								break;
+							}
+						}
 						
-						participante.add(unParticipante);
+						if(!partExistente) {
+							
+							participante.add(unParticipante);
+							
+						}*/
 						
 						
 					}
@@ -235,11 +338,11 @@ public class LectorPronosticosCsv {
 		
 	}
 	
-	public ArrayList<Participantes> mostrarListadoParticipante(){
+	/*public ArrayList<Participantes> mostrarListadoParticipante(){
 		
 		return participante;
 		
-	}
+	}*/
 
 
 	

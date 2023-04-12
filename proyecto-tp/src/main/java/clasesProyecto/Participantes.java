@@ -12,22 +12,24 @@ public class Participantes {
 	
 	public void totalesParticipante (String participante) {
 		float totales = 0;
-		if(this.nombreParticipante.equals(participante)) {
-			for(Pronostico pro:pronostico) {
+		for(Pronostico pro:pronostico) {
+			if(pro.getParticipante().equals(participante)) {
 				float parcial = pro.obtenerPuntos();
-				if(parcial >0) {
-					totales += parcial;
-					totalesPart.put(pro.getPartido().getIdronda(), totales);
-					
-				}
 				
+				totales += parcial;
+				totalesPart.put(pro.getPartido().getIdronda(), totales);
 				
 				
 			}
-			
-		}
-		System.out.println("el participante   " + participante + totalesPart);
+				
+				
+			}
+		for (Integer key: totalesPart.keySet()){
+			System.out.println("el participante "+ participante +" en la ronda: " +  key+ " Obtuvo Total de Puntos = " + totalesPart.get(key));
+		} 
 		
+		
+			
 	}
 	
 	
