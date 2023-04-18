@@ -26,7 +26,7 @@ public class LectorResultadosCsv {
 		
 	}	
 	
-	public boolean  cantidadCampos()  {
+	public boolean  cantidadCampos() throws NumeroDeCamposException {
 		int contadorCol = 0;
 		int numCol = 11;
 		boolean colCorrecta = true;
@@ -58,11 +58,11 @@ public class LectorResultadosCsv {
 			
 		}catch(IOException e) {
 			
-		} catch (NumeroDeCamposException e) {
+		} /*catch (NumeroDeCamposException e) {
 			
 			System.out.println("se produzco un error  " + e);
 			
-		}
+		}*/
 		
 		return colCorrecta;
 		

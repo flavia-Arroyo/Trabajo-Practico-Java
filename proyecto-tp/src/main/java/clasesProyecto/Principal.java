@@ -22,7 +22,8 @@ import com.opencsv.bean.CsvToBeanBuilder;
 
 public class Principal {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NumeroDeCamposException {
+		
 		
 		String rutaArchivo = "src\\main\\resources\\resultados-2da.csv";
 		String rutaPronostico = "src\\main\\resources\\pronostico2da.csv";
