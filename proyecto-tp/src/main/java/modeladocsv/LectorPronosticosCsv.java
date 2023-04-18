@@ -86,15 +86,9 @@ public class LectorPronosticosCsv {
 	}
 	
 	
-	
-
-	//ArrayList<Participantes> participante;
 	public ArrayList<Pronostico> listarPronosticos(ArrayList<Rondas> ronda){
-    	//boolean partExistente = false;
-	    //participante = new ArrayList();
+    
 		ArrayList<Pronostico> pronostico = new ArrayList();
-		
-		
 		
 		for(ListadoPronosticos lineaPronostico : this.lineaPronostico) {
 			
@@ -116,26 +110,7 @@ public class LectorPronosticosCsv {
 								Resultado.GANADOR
 								);
 						pronostico.add(unPronostico);
-						
-						/*Participantes unParticipante = new Participantes(
-							idParticipante,
-							nombreParticipante
-						
-						);
-						unParticipante.agregarPronostico(unPronostico);
-						for(Participantes particCargado:participante) {
-							if(particCargado.getIdParticipante() == unParticipante.getIdParticipante()) {
-								partExistente  = true;
-								break;
-							}
-						}
-						if(!partExistente) {
-							
-							participante.add(unParticipante);
-							
-						}*/
-						
-						
+					
 				}
 				for(Rondas rondaPartidos : ronda) {
 					Partido partidoPronosticado = rondaPartidos.obtenerPartido(idequipo1, idequipo2);
@@ -148,23 +123,7 @@ public class LectorPronosticosCsv {
 									
 								);
 						pronostico.add(unPronostico);
-						/*Participantes unParticipante = new Participantes(
-							idParticipante,
-							nombreParticipante
-							
-						);
-						unParticipante.agregarPronostico(unPronostico);
-						for(Participantes particCargado:participante) {
-							if(particCargado.getIdParticipante() == unParticipante.getIdParticipante()) {
-								partExistente  = true;
-								break;
-							}
-						}
-						if(!partExistente) {
 						
-							participante.add(unParticipante);
-							
-						}*/
 				}
 			
 				
@@ -188,24 +147,6 @@ public class LectorPronosticosCsv {
 								);
 						pronostico.add(unPronostico);
 						
-						/*Participantes unParticipante = new Participantes(
-								idParticipante,
-								nombreParticipante
-								
-							);
-						unParticipante.agregarPronostico(unPronostico);
-						for(Participantes particCargado:participante) {
-							if(particCargado.getIdParticipante() == unParticipante.getIdParticipante()) {
-								partExistente  = true;
-								break;
-							}
-						}
-						if(!partExistente) {
-							
-							participante.add(unParticipante);
-							
-						}*/
-						
 				}
 				
 				
@@ -223,23 +164,7 @@ public class LectorPronosticosCsv {
 								
 								);
 						pronostico.add(unPronostico);
-						/*Participantes unParticipante = new Participantes(
-								idParticipante,
-								nombreParticipante
-								
-							);
-						unParticipante.agregarPronostico(unPronostico);
-						for(Participantes particCargado:participante) {
-							if(particCargado.getIdParticipante() == unParticipante.getIdParticipante()) {
-								partExistente  = true;
-								break;
-							}
-						}
-						if(!partExistente) {
-							
-							participante.add(unParticipante);
-							
-						}*/
+						
 						
 						}
 			
@@ -264,23 +189,7 @@ public class LectorPronosticosCsv {
 								Resultado.GANADOR
 								);
 						pronostico.add(unPronostico);
-						/*Participantes unParticipante = new Participantes(
-								idParticipante,
-								nombreParticipante
-							
-								);
-						unParticipante.agregarPronostico(unPronostico);
-						for(Participantes particCargado:participante) {
-							if(particCargado.getIdParticipante() == unParticipante.getIdParticipante()) {
-								partExistente  = true;
-								break;
-							}
-						}
-						if(!partExistente) {
 						
-							participante.add(unParticipante);
-							
-						}*/
 						
 					}
 
@@ -298,24 +207,6 @@ public class LectorPronosticosCsv {
 								
 								);
 						pronostico.add(unPronostico);
-						/*Participantes unParticipante = new Participantes(
-								idParticipante,
-								nombreParticipante
-								
-								);
-						unParticipante.agregarPronostico(unPronostico);
-						for(Participantes particCargado:participante) {
-							if(particCargado.getIdParticipante() == unParticipante.getIdParticipante()) {
-								partExistente  = true;
-								break;
-							}
-						}
-						
-						if(!partExistente) {
-							
-							participante.add(unParticipante);
-							
-						}*/
 						
 						
 					}
@@ -326,10 +217,6 @@ public class LectorPronosticosCsv {
 			
 			
 		}//fin de recorrer el for listado pronostico
-		/*for(Participantes part:participante) {
-			System.out.println(part);
-		}*/
-		
 		
 		return pronostico;
 		
@@ -338,11 +225,7 @@ public class LectorPronosticosCsv {
 		
 	}
 	
-	/*public ArrayList<Participantes> mostrarListadoParticipante(){
-		
-		return participante;
-		
-	}*/
+	
 
 
 	

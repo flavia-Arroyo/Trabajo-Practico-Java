@@ -18,8 +18,7 @@ public class LectorResultadosCsv {
 	String rutaArchivo;
 	
 	List <ListadoPartidos> lineaArchivo;
-	
-	
+		
 	
 	public LectorResultadosCsv(String ruta)  {
 		this.rutaArchivo= ruta;
