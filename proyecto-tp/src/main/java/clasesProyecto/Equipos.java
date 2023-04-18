@@ -32,9 +32,6 @@ public class Equipos {
 	}
 
 
-	public void setIdEquipo(int idEquipo) {
-		this.idEquipo = idEquipo;
-	}
 
 
 	public String getNombreEquipo() {
@@ -42,21 +39,12 @@ public class Equipos {
 	}
 
 
-	public void setNombreEquipo(String nombreEquipo) {
-		this.nombreEquipo = nombreEquipo;
-	}
-
 
 	public String getDescripcion() {
 		return descripcion;
 	}
 	
 	
-
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
 	public static Equipos buscarEquipo(ArrayList<Equipos> equipo, Integer identificador) {
 		for(Equipos equipoenlista : equipo) {
 			if(equipoenlista.getIdEquipo() == identificador) {

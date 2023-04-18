@@ -8,6 +8,10 @@ import java.util.List;
 import clasesProyecto.Pronostico;
 import clasesProyecto.Resultado;
 import clasesProyecto.Partido;
+import clasesProyecto.Rondas;
+import clasesProyecto.Equipos;
+import clasesProyecto.Participantes;
+
 
 
 public class LectorPronosticosCsv {
@@ -19,13 +23,14 @@ public class LectorPronosticosCsv {
 		this.lineaPronostico = new ArrayList();
 		}
 	
+	
 	public void parsearPronostico() {
 		List<ListadoPronosticos> listadoPron = null;
 		try {
 			listadoPron = new CsvToBeanBuilder(new FileReader(this.rutaPronostico))
 					.withType(ListadoPronosticos.class)
 					.withSkipLines(1)
-					.withSeparator(';')
+					.withSeparator(',')
 					.build()
 					.parse();
 			
@@ -37,71 +42,131 @@ public class LectorPronosticosCsv {
 		this.lineaPronostico = listadoPron;
 		
 		
+		
 	}
 	
 	
-	public ArrayList<Pronostico> listarPronosticos(ArrayList<Partido> partido){
-		int idPronostico = 0; //inicializo el id
-		//Pronostico nuevoPronostico = new Pronostico( 0, null, null, null);
+	
+	
+	public ArrayList<Participantes> listarParticipantes(ArrayList<Pronostico> pronostico){
+		ArrayList<Participantes> participante =new ArrayList();
+		boolean partExistente = false;
 		
-		ArrayList<Pronostico> pronostico = new ArrayList();
 		for(ListadoPronosticos lineaPronostico : this.lineaPronostico) {
-			//me fijo donde esta la x
-			if(lineaPronostico.getGanaEquipo1().equals("X")) {
-				
-				// generar id
-				idPronostico = idPronostico + 1;
-				//obtener id del equipo 1 y 2 del pronostico 
-				int idequipo1 = lineaPronostico.getIdEquipo1();
-				int idequipo2 = lineaPronostico.getIdEquipo2();
-				
-				
-				for(Partido listap : partido) {
-					if((listap.getEquipo1().getIdEquipo() == idequipo1) && (listap.getEquipo2().getIdEquipo() == idequipo2)) {
-						
-						Pronostico unPronostico = new Pronostico(
-								idPronostico,
-								listap,
-								listap.getEquipo1(),
-								Resultado.GANADOR
-								
-								
-								);
-						pronostico.add(unPronostico);
-					}
+			partExistente = false;
+			//llama al constructor
+			Participantes nuevoParticipante = new Participantes(
+					lineaPronostico.getIdParticipante(),
+					lineaPronostico.getNombreParticipante()
 					
+					);
+			for(Participantes partCargado: participante) {
+				if(nuevoParticipante.getIdParticipante() == partCargado.getIdParticipante()) {
+					partExistente = true;
+					break;
 					
 				}
-			
 				
+			}
+			//agrego un nuevo participante en la lista 
+			if(!partExistente) {
+				participante.add(nuevoParticipante);
+			}
+			
+			for(Pronostico pron:pronostico) {
+				if(pron.getParticipante().equals(nuevoParticipante.getNombreParticipante())) {
+					nuevoParticipante.agregarPronostico(pron);
+				}
+			}
+			
+			
+		}
+		
+		return participante;
+	}
+	
+	
+	public ArrayList<Pronostico> listarPronosticos(ArrayList<Rondas> ronda){
+    
+		ArrayList<Pronostico> pronostico = new ArrayList();
+		
+		for(ListadoPronosticos lineaPronostico : this.lineaPronostico) {
+			
+			//me fijo donde esta la x
+			if(lineaPronostico.getGanaEquipo1().equals("X")) {
+				//busco el id del participante
+				int idParticipante = lineaPronostico.getIdParticipante();
+				String nombreParticipante = lineaPronostico.getNombreParticipante();
+				int idPronostico = lineaPronostico.getIdPronostico();
+				int idequipo1 = lineaPronostico.getIdEquipo1();
+				int idequipo2 = lineaPronostico.getIdEquipo2();				
+				for(Rondas rondaPartidos : ronda) {
+					Partido partidoPronosticado = rondaPartidos.obtenerPartido(idequipo1, idequipo2);
+					Pronostico unPronostico = new Pronostico(
+								idPronostico,
+								nombreParticipante,
+								partidoPronosticado,
+								partidoPronosticado.getEquipo1(),
+								Resultado.GANADOR
+								);
+						pronostico.add(unPronostico);
+					
+				}
+				for(Rondas rondaPartidos : ronda) {
+					Partido partidoPronosticado = rondaPartidos.obtenerPartido(idequipo1, idequipo2);
+					Pronostico unPronostico = new Pronostico(
+								idPronostico,
+								nombreParticipante,
+								partidoPronosticado,
+								partidoPronosticado.getEquipo2(),
+								Resultado.PERDEDOR
+									
+								);
+						pronostico.add(unPronostico);
+						
+				}
+			
 				
 			}// fin if gana equipo 1
 			
 			if(lineaPronostico.getEmpate().equals("X")) {
-				
-				// generar id
-				idPronostico = idPronostico + 1;
-				//obtener id del equipo 1 y 2 del pronostico 
+				//busco el id del participante
+				int idParticipante = lineaPronostico.getIdParticipante();
+				String nombreParticipante = lineaPronostico.getNombreParticipante();
+				int idPronostico = lineaPronostico.getIdPronostico();
 				int idequipo1 = lineaPronostico.getIdEquipo1();
 				int idequipo2 = lineaPronostico.getIdEquipo2();
-				
-				
-				for(Partido listap : partido) {
-					if((listap.getEquipo1().getIdEquipo() == idequipo1) && (listap.getEquipo2().getIdEquipo() == idequipo2)) {
+				for(Rondas rondaPartidos : ronda) {
+					Partido partidoPronosticado = rondaPartidos.obtenerPartido(idequipo1, idequipo2);
+					Pronostico unPronostico = new Pronostico(
+								idPronostico,
+								nombreParticipante,
+								partidoPronosticado,
+								partidoPronosticado.getEquipo1(),
+								Resultado.EMPATE
+								);
+						pronostico.add(unPronostico);
 						
+				}
+				
+				
+				for(Rondas rondaPartidos : ronda) {
+					
+					Partido partidoPronosticado = rondaPartidos.obtenerPartido(idequipo1, idequipo2);
+					
 						Pronostico unPronostico = new Pronostico(
 								idPronostico,
-								listap,
-								listap.getEquipo1(),
+								nombreParticipante,
+								partidoPronosticado,
+								partidoPronosticado.getEquipo2(),
 								Resultado.EMPATE
 								
 								
 								);
 						pronostico.add(unPronostico);
-					}
-					
-					
-				}
+						
+						
+						}
 			
 				
 				
@@ -109,51 +174,70 @@ public class LectorPronosticosCsv {
 			
 			if(lineaPronostico.getGanaEquipo2().equals("X")) {
 				
-				// generar id
-				idPronostico = idPronostico + 1;
-				//obtener id del equipo 1 y 2 del pronostico 
+				int idPronostico = lineaPronostico.getIdPronostico();
+				int idParticipante = lineaPronostico.getIdParticipante();
+				String nombreParticipante = lineaPronostico.getNombreParticipante();
 				int idequipo1 = lineaPronostico.getIdEquipo1();
 				int idequipo2 = lineaPronostico.getIdEquipo2();
-				
-				
-				for(Partido listap : partido) {
-					if((listap.getEquipo1().getIdEquipo() == idequipo1) && (listap.getEquipo2().getIdEquipo() == idequipo2)) {
+				for(Rondas rondaPartidos : ronda) {
+					Partido partidoPronosticado = rondaPartidos.obtenerPartido(idequipo1, idequipo2);
+					Pronostico unPronostico = new Pronostico(
+								idPronostico,
+								nombreParticipante,
+								partidoPronosticado,
+								partidoPronosticado.getEquipo2(),
+								Resultado.GANADOR
+								);
+						pronostico.add(unPronostico);
 						
+						
+					}
+
+				for(Rondas rondaPartidos : ronda) {
+					
+					Partido partidoPronosticado = rondaPartidos.obtenerPartido(idequipo1, idequipo2);
+					
 						Pronostico unPronostico = new Pronostico(
 								idPronostico,
-								listap,
-								listap.getEquipo2(),
-								Resultado.GANADOR
+								nombreParticipante,
+								partidoPronosticado,
+								partidoPronosticado.getEquipo1(),
+								Resultado.PERDEDOR
 								
 								
 								);
 						pronostico.add(unPronostico);
+						
+						
 					}
-					
-					
-				}
-			
 				
-				
-			}
+			
+			}//fin gana 2
 			
 			
 			
-			
-			
-			
-		
-		}
-		
-		
+		}//fin de recorrer el for listado pronostico
 		
 		return pronostico;
+		
+		
+		
+		
 	}
 	
 	
+
+
+	
+	
+	
+	
+}
 	
 	
 	
 	
 
-}
+
+
+
