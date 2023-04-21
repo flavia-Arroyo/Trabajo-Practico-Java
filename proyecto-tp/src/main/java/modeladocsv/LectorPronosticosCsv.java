@@ -15,7 +15,7 @@ import clasesProyecto.Participantes;
 
 
 public class LectorPronosticosCsv {
-	String rutaPronostico;
+	/*String rutaPronostico;
 	List<ListadoPronosticos> lineaPronostico;
 	
 	public LectorPronosticosCsv(String ruta) {
@@ -223,7 +223,7 @@ public class LectorPronosticosCsv {
 		
 		
 		
-	}
+	}*/
 	
 	
 

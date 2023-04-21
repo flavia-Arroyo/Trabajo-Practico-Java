@@ -5,37 +5,45 @@ import java.util.List;
 
 public class Pronostico {
 	private int idPronostico;
-	private String participante;
+	//private String participante;
+	private int idParticipante;
 	private Partido partido;
 	private Equipos equipo;
 	private Resultado resultadoPronostico;
 	
-	
-	
-	
-	
+
+
+
 
 	@Override
 	public String toString() {
-		return "Pronostico [idPronostico=" + idPronostico + ", participante=" + participante + ", partido=" + partido
-				+ ", equipo=" + equipo + ", resultadoPronostico=" + resultadoPronostico + "]";
+		return "Pronostico [idPronostico=" + idPronostico + ", idParticipante=" + idParticipante + ", partido="
+				+ partido + ", equipo=" + equipo + ", resultadoPronostico=" + resultadoPronostico + "]";
 	}
 
 
 
-	public Pronostico(int idPronostico, String participante, Partido partido, Equipos equipo,
+	public int getIdParticipante() {
+		return idParticipante;
+	}
+
+
+
+	public void setIdParticipante(int idParticipante) {
+		this.idParticipante = idParticipante;
+	}
+
+
+
+	public Pronostico(int idPronostico, int idParticipante, Partido partido, Equipos equipo,
 			Resultado resultadoPronostico) {
-	
+		
 		this.idPronostico = idPronostico;
-		this.participante = participante;
+		this.idParticipante = idParticipante;
 		this.partido = partido;
 		this.equipo = equipo;
 		this.resultadoPronostico = resultadoPronostico;
 	}
-
-
-
-	
 
 
 
@@ -61,7 +69,7 @@ public class Pronostico {
 	
 
 
-	public String getParticipante() {
+	/*public String getParticipante() {
 		return participante;
 	}
 
@@ -69,21 +77,47 @@ public class Pronostico {
 	public void setParticipante(String participante) {
 		this.participante = participante;
 	}
-
+	
+	
+*/
+	
+	
+	
 
 	public float obtenerPuntos() {
-		//float puntos = 0;
-			
+		
 		Resultado resultadoReal = partido.obtenerResultado(equipo, partido.getIdronda());
-		if(this.resultadoPronostico.equals(resultadoReal)){
+		if (this.resultadoPronostico.equals(resultadoReal) ){
 			
-			return  0.5f;
-		} else {
+		    return 0.5f;
+		    
+			
+		} 
+		
+		else {
 			return 0; 
 		}
 		
 	
 	}
+	
+	public float determinarAdicionalPorRonda ( float totalObtenidoporRonda) {
+		float puntaje = 0;
+		float totalpuntaje = 0;
+		String mensaje = "";
+		if(totalObtenidoporRonda == 4.0 ) {
+			puntaje = 3.0f;
+			totalpuntaje = puntaje + totalObtenidoporRonda;
+		 
+		}
+		
+		return totalpuntaje;
+		
+		
+		
+	}
+	
+	
 
 
 
