@@ -28,7 +28,7 @@ public class LectorResultadosCsv {
 	
 	public boolean  cantidadCampos() throws NumeroDeCamposException {
 		int contadorCol = 0;
-		int numCol = 11;
+		int numCol = 12;
 		boolean colCorrecta = true;
 		try {
 			BufferedReader br;
@@ -97,29 +97,56 @@ public class LectorResultadosCsv {
 	
 	
 	public ArrayList<Equipos> listarEquipos(){
-		boolean equipoExistente = false;
+		boolean equipoExistente1 = false;
+		boolean equipoExistente2 = false;
+		
 		ArrayList<Equipos> equipo = new ArrayList();
 		
 		for(ListadoPartidos lineaPartido: this.lineaArchivo) {
-			equipoExistente = false;
+			equipoExistente1 = false;
+			equipoExistente2 = false;
 			Equipos nuevoEquipo1 = new Equipos(lineaPartido.getIdEquipo1(),
 					lineaPartido.getNombreEquipo1(),
 					lineaPartido.getDescripcionEquipo1());
+		
+		
 					
 			Equipos nuevoEquipo2 = new Equipos (lineaPartido.getIdEquipo2(),
 					lineaPartido.getNombreEquipo2(),
 					lineaPartido.getDescripcionEquipo2());
 			
+		
+			
 			for (Equipos equipoCargado: equipo) {
-				if(nuevoEquipo1.getIdEquipo()==(equipoCargado.getIdEquipo()) || nuevoEquipo2.getIdEquipo() == (equipoCargado.getIdEquipo()) ) {
-					equipoExistente = true;
+				int id_equipo1 = nuevoEquipo1.getIdEquipo();
+				int id_equipo2 = nuevoEquipo2.getIdEquipo();
+				int id_equipoCargado = equipoCargado.getIdEquipo();
+				
+				
+				
+				if((id_equipo1 == id_equipoCargado)   )  {
+					
+					equipoExistente1 = true;
+					
 					break;
 					
 				}
+					if((id_equipo2 == id_equipoCargado)   )  {
+					
+					equipoExistente2 = true;
+					
+					break;
+					
+				}
+				
+				
 			}
 			
-			if(!equipoExistente) {
+			if(!equipoExistente1) {
 				equipo.add(nuevoEquipo1);
+				
+			}
+			if(!equipoExistente2) {
 				equipo.add(nuevoEquipo2);
 			}
 			
@@ -141,6 +168,7 @@ public class LectorResultadosCsv {
 			
 				
 					unPartido = new Partido(
+							linea.getNumFase(),
 							linea.getIdPartido(),
 							linea.getIdRonda(),
 							unequipo1,

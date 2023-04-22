@@ -91,7 +91,6 @@ public class Pronostico {
 			
 		    return 0.5f;
 		    
-			
 		} 
 		
 		else {
@@ -101,21 +100,37 @@ public class Pronostico {
 	
 	}
 	
-	public float determinarAdicionalPorRonda ( float totalObtenidoporRonda) {
-		float puntaje = 0;
-		float totalpuntaje = 0;
-		String mensaje = "";
-		if(totalObtenidoporRonda == 4.0 ) {
-			puntaje = 3.0f;
-			totalpuntaje = puntaje + totalObtenidoporRonda;
+	public float determinarAdicionalPorRonda (int id_participante, int ronda, float puntaje) {
+		ArrayList<Integer> participantes = new ArrayList<Integer>();
+		float puntajeExtraPorAcierto = 3.0f;
+		float totalpuntajePorRonda = 0;
+		int cantRondasAcertadas = 0;
+		participantes.add(id_participante); //agrego al arreglo de participantes
+			
+			totalpuntajePorRonda = puntaje + puntajeExtraPorAcierto;
 		 
-		}
+			for (Integer idpart : participantes) {
+				if(idpart == id_participante) {
+					cantRondasAcertadas += 1;
+				}
+			}
+			
+			if(cantRondasAcertadas == 2) {//gano fase
+				//totalPorFase(id_participante, ronda);
+			}
 		
-		return totalpuntaje;
+		
+		return totalpuntajePorRonda;
 		
 		
 		
 	}
+	
+	/*public float  totalPorFase(int id_participante, int ronda) {
+		
+		float puntajePorFase = 18.00f;
+		
+	}*/
 	
 	
 

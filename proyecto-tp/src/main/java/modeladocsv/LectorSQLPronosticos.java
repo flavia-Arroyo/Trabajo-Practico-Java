@@ -39,6 +39,7 @@ public class LectorSQLPronosticos {
 					int idequipo1 = resultado.getInt("id_Equipo1");
 					int idequipo2 = resultado.getInt("id_Equipo2");				
 					for(Rondas rondaPartidos : rondas) {
+						
 						Partido partidoPronosticado = rondaPartidos.obtenerPartido(idequipo1, idequipo2);
 						Pronostico unPronostico = new Pronostico(
 									idPronostico,

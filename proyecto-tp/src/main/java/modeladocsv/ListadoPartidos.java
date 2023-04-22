@@ -3,49 +3,53 @@ package modeladocsv;
 import com.opencsv.bean.CsvBindByPosition;
 
 public class ListadoPartidos  {
-	
 	@CsvBindByPosition(position= 0)
-	private Integer idPartido;
+	private Integer numFase;
+	
 	@CsvBindByPosition(position= 1)
-	private Integer idRonda;
+	private Integer idPartido;
 	@CsvBindByPosition(position= 2)
-	private Integer numRonda;	
+	private Integer idRonda;
 	@CsvBindByPosition(position= 3)
-	private Integer idEquipo1;
+	private Integer numRonda;	
 	@CsvBindByPosition(position= 4)
-	private String nombreEquipo1;
+	private Integer idEquipo1;
 	@CsvBindByPosition(position= 5)
-	private String descripcionEquipo1;
+	private String nombreEquipo1;
 	@CsvBindByPosition(position= 6)
-	private String golesEquipo1;
+	private String descripcionEquipo1;
 	@CsvBindByPosition(position= 7)
-	private String golesEquipo2;
+	private String golesEquipo1;
 	@CsvBindByPosition(position= 8)
-	private Integer idEquipo2;
+	private String golesEquipo2;
 	@CsvBindByPosition(position= 9)
-	private String nombreEquipo2;
+	private Integer idEquipo2;
 	@CsvBindByPosition(position= 10)
+	private String nombreEquipo2;
+	@CsvBindByPosition(position= 11)
 	private String descripcionEquipo2;
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	@Override
 	public String toString() {
-		return "ListadoPartidos [idPartido=" + idPartido + ", idRonda=" + idRonda + ", numRonda=" + numRonda
-				+ ", idEquipo1=" + idEquipo1 + ", nombreEquipo1=" + nombreEquipo1 + ", descripcionEquipo1="
-				+ descripcionEquipo1 + ", golesEquipo1=" + golesEquipo1 + ", golesEquipo2=" + golesEquipo2
-				+ ", idEquipo2=" + idEquipo2 + ", nombreEquipo2=" + nombreEquipo2 + ", descripcionEquipo2="
-				+ descripcionEquipo2 + "]";
-		
+		return "ListadoPartidos [numFase=" + numFase + ", idPartido=" + idPartido + ", idRonda=" + idRonda
+				+ ", numRonda=" + numRonda + ", idEquipo1=" + idEquipo1 + ", nombreEquipo1=" + nombreEquipo1
+				+ ", descripcionEquipo1=" + descripcionEquipo1 + ", golesEquipo1=" + golesEquipo1 + ", golesEquipo2="
+				+ golesEquipo2 + ", idEquipo2=" + idEquipo2 + ", nombreEquipo2=" + nombreEquipo2
+				+ ", descripcionEquipo2=" + descripcionEquipo2 + "]";
 	}
 	
 	
+	public Integer getNumFase() {
+		return numFase;
+	}
+
+
+	public void setNumFase(Integer numFase) {
+		this.numFase = numFase;
+	}
+
+
 	public Integer getIdRonda() {
 		return idRonda;
 	}

@@ -17,10 +17,11 @@ public class Participantes {
 		float totalesNuevaRonda = 0;
 		float parcial= 0;
 		boolean acertoRonda = false;
-		int cantRondasAcertadas = 0;
+		//int cantRondasAcertadas = 0;
 		String nombreCompleto = "";
 		String apostador = "";
-		float totalPuntos = 0;
+		//float totalPuntos = 0;
+		float extraPorRonda = 0;
 		int ronda = 0;
 		 ArrayList<Integer> rondasAcertadas = new ArrayList<Integer>();
 		String participanteAcerto= "";
@@ -37,9 +38,18 @@ public class Participantes {
 				nombreCompleto = this.apellidoParticipante + " " +  this.nombreParticipante;
 				
 				totales += pro.obtenerPuntos();
-				totalPuntos = pro.determinarAdicionalPorRonda(totales );
+				if(totales == 4) {
+					acertoRonda= true;
+					extraPorRonda = pro.determinarAdicionalPorRonda(participante, ronda, totales);
+					
+				}
+				if(acertoRonda) {
+					//System.out.println(nombreCompleto + " obtuvo puntaje extra " + extraPorRonda );
+					
+				}
+				//totalPuntos = pro.determinarAdicionalPorRonda(totales );
 				
-				if(totalPuntos >0) {
+				/*if(totalPuntos >0) {
 					acertoRonda = true;
 					int total = (int) totalPuntos;
 					apostador = nombreCompleto;
@@ -48,7 +58,7 @@ public class Participantes {
 					rondasAcertadas.add( ronda);
 					rondasAcertadas.add(total);
 					
-				}
+				}*/
 				
 
 				
@@ -76,7 +86,12 @@ public class Participantes {
 			System.out.println("    el participante "+ nombreCompleto +" en la ronda: " +  key+ " Obtuvo= " + totalesPart.get(key)  );
 		} 
 		System.out.println("");
+		
 		if(acertoRonda) {
+			System.out.println(nombreCompleto + " obtuvo puntaje extra " + extraPorRonda );
+			
+		}
+		/*if(acertoRonda) {
 			//System.out.println(nombreCompleto + " obtuvo puntaje extra " + rondaAcertada );
 			int rondaA = 0;
 			int puntos =0;
@@ -115,7 +130,7 @@ public class Participantes {
 				
 			}
 			
-		}
+		}*/
 		
 		
 

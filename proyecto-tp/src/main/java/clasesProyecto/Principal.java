@@ -28,7 +28,7 @@ public class Principal {
 	public static void main(String[] args) throws NumeroDeCamposException {
 		
 		
-		String rutaArchivo = "src\\main\\resources\\resultados2rondas.csv";
+		String rutaArchivo = "src\\main\\resources\\resultados2fases4rondas.csv";
 		//String rutaPronostico = "src\\main\\resources\\pronostico2da.csv";
 		
 		LectorResultadosCsv lectorArchivos = new LectorResultadosCsv(rutaArchivo); //debe lanzar excepciones
@@ -48,9 +48,10 @@ public class Principal {
 		
 		//genera lista con equipos
 		ArrayList<Equipos> equipos = lectorArchivos.listarEquipos();
-
+		
 		//generar lista de partidos
 		ArrayList<Partido> partido = lectorArchivos.listarPartidos(equipos);
+	
 		
 		//genero lista de rondas
 		ArrayList<Rondas> rondas = lectorArchivos.listarRondas(partido);
