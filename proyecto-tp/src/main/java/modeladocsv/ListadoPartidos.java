@@ -86,31 +86,57 @@ public class ListadoPartidos  {
 	public void setDescripcionEquipo1(String descripcionEquipo1) {
 		this.descripcionEquipo1 = descripcionEquipo1;
 	}
-	
-	
-	public Integer getGolesEquipo1() {
-		int temporal = -1;
+	public static boolean esNumero(String golesEquipo) {
+		boolean resultado;
 		try {
+			Integer.parseInt(golesEquipo);
+			resultado = true;
+			
+		} catch (NumberFormatException exception) {
+			resultado = false;
+		}
+		return resultado;
+	}
+	
+	
+	public Integer getGolesEquipo1() throws FormatoGolesIncorrectoException {
+		int temporal = -1;
+    	if(esNumero(golesEquipo1)) {
+    		return temporal = Integer.parseInt(golesEquipo1);
+    	}else {
+    		throw new FormatoGolesIncorrectoException(golesEquipo1);
+    	}
+    	
+    	
+		//return temporal;
+		/*try {
 			temporal = Integer.parseInt(golesEquipo1);
 			return temporal;
 			
 			
-		}catch(NumberFormatException ex ) {
-			System.out.println("los goles del equipo 1 no tienen el formado de numero");
-		}
-		return temporal;
-			
-			
-			
-					
+		/*}catch(Exception ex ) {
+			//System.out.println("los goles del equipo 1 no tienen el formado de numero");
+		}*/
+		//return temporal;
 		
 		
 	}
 	
 	
-    public Integer getGolesEquipo2()  {
+	
+	
+    public Integer getGolesEquipo2() throws FormatoGolesIncorrectoException {
     	int temporal = -1;
-		try {
+    	if(esNumero(golesEquipo2)) {
+    		return temporal = Integer.parseInt(golesEquipo2);
+    	}else {
+    		throw new FormatoGolesIncorrectoException(golesEquipo2);
+    	}
+    	
+    	
+		//return temporal;
+    	
+		/*try {
 			temporal = Integer.parseInt(golesEquipo2);
 			return temporal;
 			
@@ -118,7 +144,7 @@ public class ListadoPartidos  {
 		}catch(NumberFormatException ex ) {
 			System.out.println("los goles del equipo 2 no tienen el formado de numero");
 		}
-		return temporal;
+		return temporal;*/
 			
 			
     	

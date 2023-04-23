@@ -58,11 +58,7 @@ public class LectorResultadosCsv {
 			
 		}catch(IOException e) {
 			
-		} /*catch (NumeroDeCamposException e) {
-			
-			System.out.println("se produzco un error  " + e);
-			
-		}*/
+		} 
 		
 		return colCorrecta;
 		
@@ -156,7 +152,7 @@ public class LectorResultadosCsv {
 		
 	}
 	
-	public ArrayList<Partido> listarPartidos(ArrayList<Equipos> equipo){
+	public ArrayList<Partido> listarPartidos(ArrayList<Equipos> equipo) throws FormatoGolesIncorrectoException{
 		
 		
 		ArrayList<Partido> partidos = new ArrayList();

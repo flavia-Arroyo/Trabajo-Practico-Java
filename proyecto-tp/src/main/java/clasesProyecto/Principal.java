@@ -17,6 +17,7 @@ import modeladocsv.NumeroDeCamposException;
 import modeladocsv.LectorResultadosCsv;
 import modeladocsv.LectorSQLParticipantes;
 import modeladocsv.LectorSQLPronosticos;
+import modeladocsv.FormatoGolesIncorrectoException;
 import modeladocsv.LectorPronosticosCsv;
 
 //import com.opencsv.bean.CsvToBeanBuilder;
@@ -25,10 +26,10 @@ import modeladocsv.LectorPronosticosCsv;
 public class Principal {
 	
 
-	public static void main(String[] args) throws NumeroDeCamposException {
+	public static void main(String[] args) throws NumeroDeCamposException, FormatoGolesIncorrectoException {
 		
 		
-		String rutaArchivo = "src\\main\\resources\\resultados2fases4rondas.csv";
+		String rutaArchivo = "src\\main\\resources\\resultados2fasesErrorGoles.csv";
 		//String rutaPronostico = "src\\main\\resources\\pronostico2da.csv";
 		
 		LectorResultadosCsv lectorArchivos = new LectorResultadosCsv(rutaArchivo); //debe lanzar excepciones
