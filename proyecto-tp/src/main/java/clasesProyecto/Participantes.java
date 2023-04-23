@@ -81,16 +81,19 @@ public class Participantes {
 		System.out.println("");
 		System.out.println("");
 		
-		 System.out.println("     TOTAL PUNTOS OBTENIDOS ES:  " + totalParticipante);
+		 System.out.println("     PUNTOS TOTALES DE LAS RONDAS:  " + totalParticipante);
 			System.out.println("");
 		
 		if(acertoRonda) {
 			int fase= 0;
-			int cantFase1 = 0;
-			int cantFase2 = 0;
+			//int cantFase1 = 0;
+			//int cantFase2 = 0;
 			
 			int cantAciertos = 0;
-			System.out.println("     EXTRA  3 PUNTOS POR CADA RONDA PERFECTA");
+			int cantFases = 0;
+			System.out.println("OBTUVO PUNTAJE EXTRA : ");
+			
+			System.out.println("     3 PUNTOS POR CADA RONDA PERFECTA");
 			System.out.println("");
 			for(Integer ro: rondasAcertadas) {
 				System.out.println("    ronda premiada:  " + ro);
@@ -100,15 +103,17 @@ public class Participantes {
 				 
 				 
 			}
-			for(Integer fa:fasesAcertadas) {
-				
-				if(fa == 1) {
-					cantFase1 ++;
-				}
-				if(fa == 2) {
-					cantFase2 ++;
+		  ArrayList<Integer> repetidaFase = new ArrayList<Integer>();
+			for(int i = 0; i < fasesAcertadas.size() ; i ++) {
+				for(int j = i+1 ; j < fasesAcertadas.size(); j ++) {
+					if(fasesAcertadas.get(i) == fasesAcertadas.get(j)) {
+						repetidaFase.add(fasesAcertadas.get(i));
+						
+					}
 					
 				}
+				
+				
 				
 				
 				
@@ -116,28 +121,29 @@ public class Participantes {
 			
 			int puntajeTotal = (int) (totalParticipante + (cantAciertos * 3));
 			System.out.println("");
-			System.out.println("   TOTAL DE PUNTOS OBTENIDOS ES: " +  puntajeTotal);
+			System.out.println("   TOTAL DE PUNTOS RONDAS: " +  puntajeTotal);
 			
 			System.out.println("");
 			System.out.println("");
 			
-			if(cantFase1 == 2) {
-				System.out.println("     EXTRA  4 PUNTOS POR FASE 1 PERFECTA");
+			
+			
+			for (Integer faserep:repetidaFase) {
+				System.out.println("OBTUVO PUNTAJE EXTRA : ");
+				System.out.println("     4 PUNTOS POR CADA FASE PERFECTA");
+				System.out.println("");
+				System.out.println("    fase premiada:  " + faserep);
+				 cantFases = repetidaFase.size();
 				
-				
-				int totalFase = puntajeTotal + 4;
-				
-				System.out.println("     PUNTAJE TOTAL ES: " +  totalFase);
 			}
-			if(cantFase2 == 2) {
-				System.out.println("     EXTRA  4 PUNTOS POR FASE 2 PERFECTA");
-				
-				int totalFase = puntajeTotal + 4;
-				
-				System.out.println("     PUNTAJE TOTAL ES: " +  totalFase);
+			
+			int puntajeTotalFase = puntajeTotal + (cantFases * 4);
+			
+			if(puntajeTotalFase != puntajeTotal) {
 				
 				System.out.println("");
-				System.out.println("");
+				System.out.println("TOTAL GENERAL POR RONDA Y FASE ES: " + puntajeTotalFase);
+				
 			}
 			
 		}
