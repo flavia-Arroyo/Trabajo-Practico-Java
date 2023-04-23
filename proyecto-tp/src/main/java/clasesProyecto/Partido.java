@@ -2,6 +2,7 @@
 package clasesProyecto;
 
 public class Partido {
+	private int numFase;
 	private int idPartido;
 	private int idronda;
 	private Equipos equipo1;
@@ -9,10 +10,11 @@ public class Partido {
 	private Integer golesEquipo1;
 	private Integer golesEquipo2;
 	
+
+	public Partido(int numFase, int idPartido, int idronda, Equipos equipo1, Equipos equipo2, Integer golesEquipo1,
+			Integer golesEquipo2) {
 	
-	
-	public Partido(int idPartido,int idronda, Equipos equipo1, Equipos equipo2, Integer golesEquipo1, Integer golesEquipo2) {
-		
+		this.numFase = numFase;
 		this.idPartido = idPartido;
 		this.idronda = idronda;
 		this.equipo1 = equipo1;
@@ -20,8 +22,36 @@ public class Partido {
 		this.golesEquipo1 = golesEquipo1;
 		this.golesEquipo2 = golesEquipo2;
 	}
-
 	
+	
+
+
+	@Override
+	public String toString() {
+		return "Partido [numFase=" + numFase + ", idPartido=" + idPartido + ", idronda=" + idronda + ", equipo1="
+				+ equipo1 + ", equipo2=" + equipo2 + ", golesEquipo1=" + golesEquipo1 + ", golesEquipo2=" + golesEquipo2
+				+ "]";
+	}
+
+
+
+
+
+	public int getNumFase() {
+		return numFase;
+	}
+
+
+
+
+
+	public void setNumFase(int numFase) {
+		this.numFase = numFase;
+	}
+
+
+
+
 
 	public int getIdronda() {
 		return idronda;
@@ -55,11 +85,7 @@ public class Partido {
 	
 
 
-	@Override
-	public String toString() {
-		return "Partido [idPartido=" + idPartido + ", idronda=" + idronda + ", equipo1=" + equipo1 + ", equipo2="
-				+ equipo2 + ", golesEquipo1=" + golesEquipo1 + ", golesEquipo2=" + golesEquipo2 + "]";
-	}
+	
 
 
 

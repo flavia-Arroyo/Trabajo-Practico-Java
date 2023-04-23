@@ -3,17 +3,32 @@ package clasesProyecto;
 import java.util.ArrayList;
 
 public class Rondas {
+	private int numFase;
 	private int idRonda;
 	private int numRonda;
 	private ArrayList<Partido> partido;
 	
-	public Rondas(int idRonda, int numRonda, ArrayList<Partido> partido) {
-		
+	public Rondas(int numFase,int idRonda, int numRonda, ArrayList<Partido> partido) {
+		this.numFase= numFase;
 		this.idRonda = idRonda;
 		this.numRonda = numRonda;
 		this.partido = partido;
 	}
 	
+	
+	
+	public int getNumFase() {
+		return numFase;
+	}
+
+
+
+	public void setNumFase(int numFase) {
+		this.numFase = numFase;
+	}
+
+
+
 	public int obteneridEquipo1(){
 		int idEquipo1 = 0;
 		for(Partido part:partido) {
@@ -94,10 +109,15 @@ public class Rondas {
 		this.numRonda = numRonda;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Rondas [idRonda=" + idRonda + ", numRonda=" + numRonda + ", partido=" + partido + "]";
+		return "Rondas [numFase=" + numFase + ", idRonda=" + idRonda + ", numRonda=" + numRonda + ", partido=" + partido
+				+ "]";
 	}
+
+	
 	
 	
 	
