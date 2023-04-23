@@ -14,14 +14,14 @@ public class Participantes {
 	
 	public void totalesParticipante (int participante) {
 		float totales = 0;
-		float totalesNuevaRonda = 0;
-		float parcial= 0;
+		//float totalesNuevaRonda = 0;
+		//float parcial= 0;
 		boolean acertoRonda = false;
 		//int cantRondasAcertadas = 0;
 		String nombreCompleto = "";
-		String apostador = "";
+		//String apostador = "";
 		//float totalPuntos = 0;
-		float extraPorRonda = 0;
+		float extraPorRondaPerfecta = 3.0f;
 		int ronda = 0;
 		 ArrayList<Integer> rondasAcertadas = new ArrayList<Integer>();
 		String participanteAcerto= "";
@@ -40,10 +40,14 @@ public class Participantes {
 				totales += pro.obtenerPuntos();
 				if(totales == 4) {
 					acertoRonda= true;
-					extraPorRonda = pro.determinarAdicionalPorRonda(participante, ronda, totales);
+					
+					rondasAcertadas.add(ronda);
+					
+					//antes decia id participante
+					//pro.determinarAdicionalPorRonda(nombreCompleto, ronda, totales);
 					
 				}
-				if(acertoRonda) {
+				/*if(acertoRonda) {
 					//System.out.println(nombreCompleto + " obtuvo puntaje extra " + extraPorRonda );
 					
 				}
@@ -80,15 +84,38 @@ public class Participantes {
 		
 		System.out.println("**********Totales por Ronda********************");
 		System.out.println("");
+		float totalParticipante = 0;
 		for (Integer key: keys){
 			
 			
 			System.out.println("    el participante "+ nombreCompleto +" en la ronda: " +  key+ " Obtuvo= " + totalesPart.get(key)  );
+			  totalParticipante += totalesPart.get(key) ;
+			  
+			 
+				
+			
 		} 
 		System.out.println("");
+		System.out.println("");
+		
+		 System.out.println("TOTAL PUNTOS OBTENIDOS ES:" + totalParticipante);
+	
 		
 		if(acertoRonda) {
-			System.out.println(nombreCompleto + " obtuvo puntaje extra " + extraPorRonda );
+			int cantAciertos = 0;
+			System.out.println("EXTRA  3 PUNTOS POR CADA RONDA PERFECTA");
+			for(Integer ro: rondasAcertadas) {
+				System.out.println("ronda premiada:  " + ro);
+				 cantAciertos = rondasAcertadas.size();
+				
+			
+			}
+			
+			int puntajeTotal = (int) (totalParticipante + (cantAciertos * 3));
+			
+			System.out.println("TOTAL DE PUNTOS OBTENIDOS ES: " +  puntajeTotal);
+			
+			
 			
 		}
 		/*if(acertoRonda) {

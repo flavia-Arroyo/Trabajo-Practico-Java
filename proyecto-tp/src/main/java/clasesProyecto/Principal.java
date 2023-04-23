@@ -70,7 +70,7 @@ public class Principal {
 		
 		for(Participantes part:participante) {
 			
-			System.out.println(part);
+			
 		
 		    part.totalesParticipante(part.getIdParticipante());
 			

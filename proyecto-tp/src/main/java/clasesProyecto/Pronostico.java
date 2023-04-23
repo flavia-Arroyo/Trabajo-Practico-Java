@@ -119,16 +119,20 @@ public class Pronostico {
 	
 	}
 	
-	public float determinarAdicionalPorRonda (int id_participante, int ronda, float puntaje) {
-		ArrayList<Integer> participantes = new ArrayList<Integer>();
+	public void determinarAdicionalPorRonda (String participante, int ronda, float puntaje) {
+		//ArrayList<Integer> participantes = new ArrayList<Integer>();
+		ArrayList<Object> totalesPorRonda = new ArrayList<Object>();
 		float puntajeExtraPorAcierto = 3.0f;
 		float totalpuntajePorRonda = 0;
 		int cantRondasAcertadas = 0;
-		participantes.add(id_participante); //agrego al arreglo de participantes
+		//participantes.add(id_participante); //agrego al arreglo de participantes
 			
 			totalpuntajePorRonda = puntaje + puntajeExtraPorAcierto;
+			totalesPorRonda.add(participante);
+			totalesPorRonda.add(ronda);
+			totalesPorRonda.add(totalpuntajePorRonda);
 		 
-			for (Integer idpart : participantes) {
+			/*for (Integer idpart : participantes) {
 				if(idpart == id_participante) {
 					cantRondasAcertadas += 1;
 				}
@@ -136,10 +140,13 @@ public class Pronostico {
 			
 			if(cantRondasAcertadas == 2) {//gano fase
 				//totalPorFase(id_participante, ronda);
-			}
+			}*/
 		
 		
-		return totalpuntajePorRonda;
+		for(int i = 0; i < totalesPorRonda.size() ; i ++) {
+			
+			System.out.println("El Participante: " + i );
+		}
 		
 		
 		
