@@ -24,6 +24,7 @@ public class Participantes {
 		float extraPorRondaPerfecta = 3.0f;
 		int ronda = 0;
 		 ArrayList<Integer> rondasAcertadas = new ArrayList<Integer>();
+		 ArrayList<Integer>fasesAcertadas = new ArrayList<Integer>();
 		String participanteAcerto= "";
 		Set<Integer> keys = totalesPart.keySet();
 		for(Pronostico pro:pronostico) {
@@ -42,27 +43,9 @@ public class Participantes {
 					acertoRonda= true;
 					
 					rondasAcertadas.add(ronda);
-					
-					//antes decia id participante
-					//pro.determinarAdicionalPorRonda(nombreCompleto, ronda, totales);
+					fasesAcertadas.add(pro.getNumFase(ronda));
 					
 				}
-				/*if(acertoRonda) {
-					//System.out.println(nombreCompleto + " obtuvo puntaje extra " + extraPorRonda );
-					
-				}
-				//totalPuntos = pro.determinarAdicionalPorRonda(totales );
-				
-				/*if(totalPuntos >0) {
-					acertoRonda = true;
-					int total = (int) totalPuntos;
-					apostador = nombreCompleto;
-					cantRondasAcertadas += 1;
-					apostador= nombreCompleto;
-					rondasAcertadas.add( ronda);
-					rondasAcertadas.add(total);
-					
-				}*/
 				
 
 				
@@ -80,8 +63,8 @@ public class Participantes {
 		
 		
 		
-		
-		
+		System.out.println("");
+		System.out.println("");
 		System.out.println("**********Totales por Ronda********************");
 		System.out.println("");
 		float totalParticipante = 0;
@@ -98,66 +81,67 @@ public class Participantes {
 		System.out.println("");
 		System.out.println("");
 		
-		 System.out.println("TOTAL PUNTOS OBTENIDOS ES:" + totalParticipante);
-	
+		 System.out.println("     TOTAL PUNTOS OBTENIDOS ES:  " + totalParticipante);
+			System.out.println("");
 		
 		if(acertoRonda) {
+			int fase= 0;
+			int cantFase1 = 0;
+			int cantFase2 = 0;
+			
 			int cantAciertos = 0;
-			System.out.println("EXTRA  3 PUNTOS POR CADA RONDA PERFECTA");
+			System.out.println("     EXTRA  3 PUNTOS POR CADA RONDA PERFECTA");
+			System.out.println("");
 			for(Integer ro: rondasAcertadas) {
-				System.out.println("ronda premiada:  " + ro);
+				System.out.println("    ronda premiada:  " + ro);
 				 cantAciertos = rondasAcertadas.size();
 				
-			
+				 
+				 
+				 
+			}
+			for(Integer fa:fasesAcertadas) {
+				
+				if(fa == 1) {
+					cantFase1 ++;
+				}
+				if(fa == 2) {
+					cantFase2 ++;
+					
+				}
+				
+				
+				
 			}
 			
 			int puntajeTotal = (int) (totalParticipante + (cantAciertos * 3));
+			System.out.println("");
+			System.out.println("   TOTAL DE PUNTOS OBTENIDOS ES: " +  puntajeTotal);
 			
-			System.out.println("TOTAL DE PUNTOS OBTENIDOS ES: " +  puntajeTotal);
+			System.out.println("");
+			System.out.println("");
 			
-			
+			if(cantFase1 == 2) {
+				System.out.println("     EXTRA  4 PUNTOS POR FASE 1 PERFECTA");
+				
+				
+				int totalFase = puntajeTotal + 4;
+				
+				System.out.println("     PUNTAJE TOTAL ES: " +  totalFase);
+			}
+			if(cantFase2 == 2) {
+				System.out.println("     EXTRA  4 PUNTOS POR FASE 2 PERFECTA");
+				
+				int totalFase = puntajeTotal + 4;
+				
+				System.out.println("     PUNTAJE TOTAL ES: " +  totalFase);
+				
+				System.out.println("");
+				System.out.println("");
+			}
 			
 		}
-		/*if(acertoRonda) {
-			//System.out.println(nombreCompleto + " obtuvo puntaje extra " + rondaAcertada );
-			int rondaA = 0;
-			int puntos =0;
-			int rondaB = 0;
-			int puntosB = 0;
-			
-			for(int i= 0;  i < rondasAcertadas.size(); i ++ ) {
-				rondaA = rondasAcertadas.get(0);
-			 puntos = rondasAcertadas.get(1);
-				rondaB = rondasAcertadas.get(2);
-				puntosB = rondasAcertadas.get(3);
-				
-			}
-			System.out.println("*************************************************");
-			System.out.println("*************************************************");
-			System.out.println("");
-			System.out.println(apostador + " acerto rondas");
-			System.out.println("");
-			System.out.println( "  obtuvo puntaje extra en la ronda: " + rondaA + " Total de Puntaje: " +  puntos)  ;
-			System.out.println( "  obtuvo puntaje extra en la ronda: " + rondaB + " Total de Puntaje: " +  puntosB)  ;
-			System.out.println("");
-			if(cantRondasAcertadas == 2) {
-				System.out.println("*************************************************");
-				System.out.println("*************************************************");
-				System.out.println("");
-				System.out.println(apostador + "  obtuvo puntaje extra ( 4 puntos) por acertar 2 rondas consecutivas: ")  ;
-				int puntaje_extra = 4;
-				int totalFase = puntos + puntosB + puntaje_extra;
-				 System.out.println("total de puntos obtenidos es: " +  totalFase);
-				
-				
-				
-				
-				
-				
-				
-			}
-			
-		}*/
+		
 		
 		
 

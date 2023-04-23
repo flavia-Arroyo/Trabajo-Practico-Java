@@ -54,8 +54,13 @@ public class Pronostico {
 
 
 
-	public int getNumFase() {
+	public int getNumFase(int ronda) {
+		int numFase = 0;
+		if(partido.getIdronda() == ronda) {
+			numFase = partido.getNumFase();
+		}
 		return numFase;
+		
 	}
 
 
@@ -86,20 +91,6 @@ public class Pronostico {
 
 
 	
-
-
-	/*public String getParticipante() {
-		return participante;
-	}
-
-
-	public void setParticipante(String participante) {
-		this.participante = participante;
-	}
-	
-	
-*/
-	
 	
 	
 
@@ -119,44 +110,6 @@ public class Pronostico {
 	
 	}
 	
-	public void determinarAdicionalPorRonda (String participante, int ronda, float puntaje) {
-		//ArrayList<Integer> participantes = new ArrayList<Integer>();
-		ArrayList<Object> totalesPorRonda = new ArrayList<Object>();
-		float puntajeExtraPorAcierto = 3.0f;
-		float totalpuntajePorRonda = 0;
-		int cantRondasAcertadas = 0;
-		//participantes.add(id_participante); //agrego al arreglo de participantes
-			
-			totalpuntajePorRonda = puntaje + puntajeExtraPorAcierto;
-			totalesPorRonda.add(participante);
-			totalesPorRonda.add(ronda);
-			totalesPorRonda.add(totalpuntajePorRonda);
-		 
-			/*for (Integer idpart : participantes) {
-				if(idpart == id_participante) {
-					cantRondasAcertadas += 1;
-				}
-			}
-			
-			if(cantRondasAcertadas == 2) {//gano fase
-				//totalPorFase(id_participante, ronda);
-			}*/
-		
-		
-		for(int i = 0; i < totalesPorRonda.size() ; i ++) {
-			
-			System.out.println("El Participante: " + i );
-		}
-		
-		
-		
-	}
-	
-	/*public float  totalPorFase(int id_participante, int ronda) {
-		
-		float puntajePorFase = 18.00f;
-		
-	}*/
 	
 	
 
