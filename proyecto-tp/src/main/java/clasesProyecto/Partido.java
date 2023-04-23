@@ -27,6 +27,17 @@ public class Partido {
 
 
 
+	@Override
+	public String toString() {
+		return "Partido [numFase=" + numFase + ", idPartido=" + idPartido + ", idronda=" + idronda + ", equipo1="
+				+ equipo1 + ", equipo2=" + equipo2 + ", golesEquipo1=" + golesEquipo1 + ", golesEquipo2=" + golesEquipo2
+				+ "]";
+	}
+
+
+
+
+
 	public int getNumFase() {
 		return numFase;
 	}
@@ -75,11 +86,7 @@ public class Partido {
 	
 
 
-	@Override
-	public String toString() {
-		return "Partido [idPartido=" + idPartido + ", idronda=" + idronda + ", equipo1=" + equipo1 + ", equipo2="
-				+ equipo2 + ", golesEquipo1=" + golesEquipo1 + ", golesEquipo2=" + golesEquipo2 + "]";
-	}
+	
 
 
 

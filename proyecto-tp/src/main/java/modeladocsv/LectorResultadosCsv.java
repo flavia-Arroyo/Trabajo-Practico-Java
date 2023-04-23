@@ -197,7 +197,8 @@ public class LectorResultadosCsv {
 		
 		for(ListadoPartidos lineaPartido: this.lineaArchivo) {
 			rondaExistente = false;
-			Rondas unaRonda = new Rondas(lineaPartido.getIdRonda(), lineaPartido.getNumRonda(),partido);
+			int numFase = lineaPartido.getNumFase();
+			Rondas unaRonda = new Rondas(numFase,lineaPartido.getIdRonda(), lineaPartido.getNumRonda(),partido);
 			
 			for (Rondas rondaCargada: ronda) {
 				if(unaRonda.getIdRonda() == rondaCargada.getIdRonda()) {

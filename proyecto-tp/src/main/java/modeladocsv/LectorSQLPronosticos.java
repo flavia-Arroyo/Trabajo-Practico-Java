@@ -39,11 +39,13 @@ public class LectorSQLPronosticos {
 					int idequipo1 = resultado.getInt("id_Equipo1");
 					int idequipo2 = resultado.getInt("id_Equipo2");				
 					for(Rondas rondaPartidos : rondas) {
+						int numFase = rondaPartidos.getNumFase();
 						
 						Partido partidoPronosticado = rondaPartidos.obtenerPartido(idequipo1, idequipo2);
 						Pronostico unPronostico = new Pronostico(
 									idPronostico,
 									idParticipante,
+									numFase,
 									partidoPronosticado,
 									partidoPronosticado.getEquipo1(),
 									Resultado.GANADOR
@@ -52,10 +54,12 @@ public class LectorSQLPronosticos {
 						
 					}
 					for(Rondas rondaPartidos : rondas) {
+						int numFase = rondaPartidos.getNumFase();
 						Partido partidoPronosticado = rondaPartidos.obtenerPartido(idequipo1, idequipo2);
 						Pronostico unPronostico = new Pronostico(
 									idPronostico,
 									idParticipante,
+									numFase,
 									partidoPronosticado,
 									partidoPronosticado.getEquipo2(),
 									Resultado.PERDEDOR
@@ -73,10 +77,12 @@ public class LectorSQLPronosticos {
 					int idequipo1 = resultado.getInt("id_Equipo1");
 					int idequipo2 = resultado.getInt("id_Equipo2");				
 					for(Rondas rondaPartidos : rondas) {
+						int numFase = rondaPartidos.getNumFase();
 						Partido partidoPronosticado = rondaPartidos.obtenerPartido(idequipo1, idequipo2);
 						Pronostico unPronostico = new Pronostico(
 									idPronostico,
 									idParticipante,
+									numFase,
 									partidoPronosticado,
 									partidoPronosticado.getEquipo1(),
 									Resultado.EMPATE
@@ -85,10 +91,12 @@ public class LectorSQLPronosticos {
 						
 					}
 					for(Rondas rondaPartidos : rondas) {
+						int numFase = rondaPartidos.getNumFase();
 						Partido partidoPronosticado = rondaPartidos.obtenerPartido(idequipo1, idequipo2);
 						Pronostico unPronostico = new Pronostico(
 									idPronostico,
 									idParticipante,
+									numFase,
 									partidoPronosticado,
 									partidoPronosticado.getEquipo2(),
 									Resultado.EMPATE
@@ -107,10 +115,12 @@ public class LectorSQLPronosticos {
 					int idequipo1 = resultado.getInt("id_Equipo1");
 					int idequipo2 = resultado.getInt("id_Equipo2");				
 					for(Rondas rondaPartidos : rondas) {
+						int numFase = rondaPartidos.getNumFase();
 						Partido partidoPronosticado = rondaPartidos.obtenerPartido(idequipo1, idequipo2);
 						Pronostico unPronostico = new Pronostico(
 									idPronostico,
 									idParticipante,
+									numFase,
 									partidoPronosticado,
 									partidoPronosticado.getEquipo2(),
 									Resultado.GANADOR
@@ -119,10 +129,12 @@ public class LectorSQLPronosticos {
 						
 					}
 					for(Rondas rondaPartidos : rondas) {
+						int numFase = rondaPartidos.getNumFase();
 						Partido partidoPronosticado = rondaPartidos.obtenerPartido(idequipo1, idequipo2);
 						Pronostico unPronostico = new Pronostico(
 									idPronostico,
 									idParticipante,
+									numFase,
 									partidoPronosticado,
 									partidoPronosticado.getEquipo1(),
 									Resultado.PERDEDOR

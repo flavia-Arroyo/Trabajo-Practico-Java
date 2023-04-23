@@ -69,6 +69,8 @@ public class Principal {
 		ArrayList<Participantes> participante = LectorSQLParticipantes.obtenerParticipantes(pronostico);
 		
 		for(Participantes part:participante) {
+			
+			System.out.println(part);
 		
 		    part.totalesParticipante(part.getIdParticipante());
 			

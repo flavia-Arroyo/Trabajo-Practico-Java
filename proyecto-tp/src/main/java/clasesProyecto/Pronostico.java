@@ -7,6 +7,7 @@ public class Pronostico {
 	private int idPronostico;
 	//private String participante;
 	private int idParticipante;
+	private int numFase;
 	private Partido partido;
 	private Equipos equipo;
 	private Resultado resultadoPronostico;
@@ -15,10 +16,15 @@ public class Pronostico {
 
 
 
+	
+
+
+
 	@Override
 	public String toString() {
-		return "Pronostico [idPronostico=" + idPronostico + ", idParticipante=" + idParticipante + ", partido="
-				+ partido + ", equipo=" + equipo + ", resultadoPronostico=" + resultadoPronostico + "]";
+		return "Pronostico [idPronostico=" + idPronostico + ", idParticipante=" + idParticipante + ", numFase="
+				+ numFase + ", partido=" + partido + ", equipo=" + equipo + ", resultadoPronostico="
+				+ resultadoPronostico + "]";
 	}
 
 
@@ -35,14 +41,27 @@ public class Pronostico {
 
 
 
-	public Pronostico(int idPronostico, int idParticipante, Partido partido, Equipos equipo,
+	public Pronostico(int idPronostico, int idParticipante, int numFase, Partido partido, Equipos equipo,
 			Resultado resultadoPronostico) {
 		
 		this.idPronostico = idPronostico;
 		this.idParticipante = idParticipante;
+		this.numFase = numFase;
 		this.partido = partido;
 		this.equipo = equipo;
 		this.resultadoPronostico = resultadoPronostico;
+	}
+
+
+
+	public int getNumFase() {
+		return numFase;
+	}
+
+
+
+	public void setNumFase(int numFase) {
+		this.numFase = numFase;
 	}
 
 
