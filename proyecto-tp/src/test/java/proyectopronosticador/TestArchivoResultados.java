@@ -14,7 +14,7 @@ import modeladocsv.NumeroDeCamposException;
 class TestArchivoResultados {
 	
 	
-		LectorResultadosCsv lectorArchivos = new LectorResultadosCsv("src\\main\\resources\\resultados-errorcol3.csv"); 
+		LectorResultadosCsv lectorArchivos = new LectorResultadosCsv("src\\main\\resources\\resultadosErrorCamposTest.csv"); 
 		
 	
 	
